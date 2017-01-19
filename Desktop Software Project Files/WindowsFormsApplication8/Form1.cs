@@ -83,6 +83,7 @@ namespace WindowsFormsApplication8
             {
                 serialTimer.Enabled = false;
                 disconnect(); //Set labels and status to off
+                
             }
             else //Otherwise turn timer on it on
             {
@@ -140,6 +141,7 @@ namespace WindowsFormsApplication8
                 disconnect();
                 //Disable timer
                 serialTimer.Enabled = false;
+                MessageBox.Show("Unable to connect to arduino");
 
             }
             
@@ -152,7 +154,18 @@ namespace WindowsFormsApplication8
             connectionStatusLabel.Text = "Dissconnected";
         }
 
-        
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                serialTimer.Interval = (int)numericUpDown1.Value;
+            }
+            catch
+            {
+                MessageBox.Show("Interval must be larger than 0ms and smaller than 10,000ms");
+                numericUpDown1.Value = 500;
+            }
+        }
     }
     }
 
