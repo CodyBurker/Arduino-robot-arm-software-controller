@@ -7,12 +7,3 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\WindowsFormsApplication8\WindowsFormsApplication8\bin\Debug\WindowsFormsApplication8.pdb
 \\Mac\Home\Documents\Visual Studio 2015\Projects\WindowsFormsApplication8\WindowsFormsApplication8\obj\Debug\WindowsFormsApplication8.Form1.resources
 \\Mac\Home\Documents\Visual Studio 2015\Projects\WindowsFormsApplication8\WindowsFormsApplication8\obj\Debug\Arduino Robot Arm Control.csprojResolveAssemblyReference.cache
-\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\bin\Debug\WindowsFormsApplication8.exe.config
-\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\WindowsFormsApplication8.exe
-\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\WindowsFormsApplication8.pdb
-\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\bin\Debug\WindowsFormsApplication8.exe
-\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\bin\Debug\WindowsFormsApplication8.pdb
-\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\Arduino Robot Arm Control.csprojResolveAssemblyReference.cache
-\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\WindowsFormsApplication8.Form1.resources
-\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\WindowsFormsApplication8.Properties.Resources.resources
-\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\Arduino Robot Arm Control.csproj.GenerateResource.Cache

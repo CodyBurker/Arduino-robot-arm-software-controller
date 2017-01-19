@@ -50,26 +50,31 @@ namespace WindowsFormsApplication8
         private void rotationTrackBar_Scroll(object sender, EventArgs e)//On Rotation Track Bar Update
         {
             servo1 = rotationTrackBar.Value;
+            sendSerial();
         }
 
         private void extensionTrackBar_Scroll(object sender, EventArgs e) //On Extension Track Bar Update
         {
             servo2 = extensionTrackBar.Value;
+            sendSerial();
         }
 
         private void elevationTrackBar_Scroll(object sender, EventArgs e)//On Elevation Track Bar Update
         {
             servo3 = elevationTrackBar.Value;
+            sendSerial();
         }
 
         private void gripperTrackBar_Scroll(object sender, EventArgs e)//On Gripper Track Bar Update
         {
             servo4 = gripperTrackBar.Value;
+            sendSerial();
         }
 
         private void auxTrackBar_Scroll(object sender, EventArgs e)//On Aux Track Bar Update
         {
             servo5 = auxTrackBar.Value;
+            sendSerial();
         }
 
         private void connectButton_Click(object sender, EventArgs e)//On serial button connect/discconect
@@ -117,6 +122,7 @@ namespace WindowsFormsApplication8
             if (arduinoSerialPort.IsOpen)
             {
                 arduinoSerialPort.Write(s1+s2+s3+s4+s5);
+                Thread.Sleep(20);
             }
             rotationLabel.Text = "Rotation: " + s1;
             extensionLabel.Text = "Extension: " + s2;
@@ -127,26 +133,7 @@ namespace WindowsFormsApplication8
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            sendSerial();
-        }
 
-        private void refreshRate_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (int.Parse(refreshRate.Text) >= 100){
-                    serialTimer.Interval = int.Parse(refreshRate.Text);
-                }
-                else
-                {
-                    MessageBox.Show("Integer must be larger than 100");
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Enter an integer");
-                refreshRate.Text = "100";
-            }
         }
     }
     }
