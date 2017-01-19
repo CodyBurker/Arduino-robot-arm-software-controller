@@ -1,0 +1,1 @@
+\\mac\home\documents\visual studio 2015\Projects\WindowsFormsApplication8\WindowsFormsApplication8\bin\Debug\WindowsFormsApplication8.exe.config
