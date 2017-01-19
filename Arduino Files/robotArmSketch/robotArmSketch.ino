@@ -11,7 +11,7 @@ String readString, servos[5];
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(115200);
+  Serial.begin(9600 );
   Serial.println("Testing...");
   servo0.attach(3);
 }
@@ -29,10 +29,6 @@ void loop() {
     Serial.println("Read:");
     for (int i = 0; i <= 4; i++) {
       servos[i] = readString.substring(3 * i, 3 * i + 3);
-      Serial.print("Servo#");
-      Serial.print(i+1);
-      Serial.print(": ");
-      Serial.println(servos[i]);
     }
     servo0.write(map(servos[0].toInt(),0,100,20,160));
     readString = "";

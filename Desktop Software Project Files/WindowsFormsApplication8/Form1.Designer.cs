@@ -71,7 +71,6 @@
             this.connectionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.arduinoSerialPort = new System.IO.Ports.SerialPort(this.components);
             this.serialTimer = new System.Windows.Forms.Timer(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.mainLayoutPanel.SuspendLayout();
             this.armControlGroupBox.SuspendLayout();
             this.armControlLayoutPanel.SuspendLayout();
@@ -388,7 +387,7 @@
             this.baudRateTextBox.Name = "baudRateTextBox";
             this.baudRateTextBox.Size = new System.Drawing.Size(117, 20);
             this.baudRateTextBox.TabIndex = 0;
-            this.baudRateTextBox.Text = "115200";
+            this.baudRateTextBox.Text = "9600";
             // 
             // connectButton
             // 
@@ -715,7 +714,6 @@
         private System.Windows.Forms.Label framDurationLabel;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Timer serialTimer;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 
