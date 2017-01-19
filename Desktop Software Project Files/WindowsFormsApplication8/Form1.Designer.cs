@@ -57,7 +57,7 @@
             this.overwriteButton = new System.Windows.Forms.Button();
             this.newFrameButton = new System.Windows.Forms.Button();
             this.framDurationLabel = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.refreshRateNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.playbackGroupBox = new System.Windows.Forms.GroupBox();
             this.PlaybackControlTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.stopButton = new System.Windows.Forms.Button();
@@ -71,6 +71,8 @@
             this.connectionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.arduinoSerialPort = new System.IO.Ports.SerialPort(this.components);
             this.serialTimer = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.mainLayoutPanel.SuspendLayout();
             this.armControlGroupBox.SuspendLayout();
             this.armControlLayoutPanel.SuspendLayout();
@@ -85,11 +87,12 @@
             this.panel1.SuspendLayout();
             this.frameControlGroupBox.SuspendLayout();
             this.FrameControlTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshRateNumericUpDown)).BeginInit();
             this.playbackGroupBox.SuspendLayout();
             this.PlaybackControlTableLayoutPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLayoutPanel
@@ -113,7 +116,7 @@
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.91694F));
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.86047F));
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.22259F));
-            this.mainLayoutPanel.Size = new System.Drawing.Size(806, 452);
+            this.mainLayoutPanel.Size = new System.Drawing.Size(807, 488);
             this.mainLayoutPanel.TabIndex = 2;
             // 
             // armControlGroupBox
@@ -122,10 +125,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.armControlGroupBox.Controls.Add(this.armControlLayoutPanel);
-            this.armControlGroupBox.Location = new System.Drawing.Point(271, 3);
+            this.armControlGroupBox.Location = new System.Drawing.Point(272, 3);
             this.armControlGroupBox.Name = "armControlGroupBox";
             this.mainLayoutPanel.SetRowSpan(this.armControlGroupBox, 3);
-            this.armControlGroupBox.Size = new System.Drawing.Size(262, 426);
+            this.armControlGroupBox.Size = new System.Drawing.Size(263, 462);
             this.armControlGroupBox.TabIndex = 1;
             this.armControlGroupBox.TabStop = false;
             this.armControlGroupBox.Text = "Arm Control";
@@ -133,23 +136,25 @@
             // armControlLayoutPanel
             // 
             this.armControlLayoutPanel.AutoSize = true;
-            this.armControlLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.armControlLayoutPanel.ColumnCount = 1;
-            this.armControlLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.armControlLayoutPanel.ColumnCount = 2;
+            this.armControlLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.armControlLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.armControlLayoutPanel.Controls.Add(this.auxTrackBar, 0, 9);
             this.armControlLayoutPanel.Controls.Add(this.gripperTrackBar, 0, 7);
             this.armControlLayoutPanel.Controls.Add(this.elevationTrackBar, 0, 5);
             this.armControlLayoutPanel.Controls.Add(this.extensionTrackBar, 0, 3);
+            this.armControlLayoutPanel.Controls.Add(this.refreshRateNumericUpDown, 1, 10);
             this.armControlLayoutPanel.Controls.Add(this.rotationLabel, 0, 0);
             this.armControlLayoutPanel.Controls.Add(this.extensionLabel, 0, 2);
             this.armControlLayoutPanel.Controls.Add(this.elevationLabel, 0, 4);
             this.armControlLayoutPanel.Controls.Add(this.gripperLabel, 0, 6);
             this.armControlLayoutPanel.Controls.Add(this.auxLabel, 0, 8);
             this.armControlLayoutPanel.Controls.Add(this.rotationTrackBar, 0, 1);
+            this.armControlLayoutPanel.Controls.Add(this.label2, 0, 10);
             this.armControlLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.armControlLayoutPanel.Location = new System.Drawing.Point(3, 16);
             this.armControlLayoutPanel.Name = "armControlLayoutPanel";
-            this.armControlLayoutPanel.RowCount = 10;
+            this.armControlLayoutPanel.RowCount = 11;
             this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
@@ -160,19 +165,23 @@
             this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.armControlLayoutPanel.Size = new System.Drawing.Size(256, 407);
+            this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.armControlLayoutPanel.Size = new System.Drawing.Size(257, 443);
             this.armControlLayoutPanel.TabIndex = 0;
+            this.armControlLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.armControlLayoutPanel_Paint);
             // 
             // auxTrackBar
             // 
             this.auxTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.armControlLayoutPanel.SetColumnSpan(this.auxTrackBar, 2);
             this.auxTrackBar.LargeChange = 20;
-            this.auxTrackBar.Location = new System.Drawing.Point(4, 344);
+            this.auxTrackBar.Location = new System.Drawing.Point(3, 360);
             this.auxTrackBar.Maximum = 100;
             this.auxTrackBar.Name = "auxTrackBar";
-            this.auxTrackBar.Size = new System.Drawing.Size(248, 59);
+            this.auxTrackBar.Size = new System.Drawing.Size(251, 57);
             this.auxTrackBar.TabIndex = 9;
             this.auxTrackBar.TickFrequency = 10;
             this.auxTrackBar.Scroll += new System.EventHandler(this.auxTrackBar_Scroll);
@@ -182,11 +191,12 @@
             this.gripperTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.armControlLayoutPanel.SetColumnSpan(this.gripperTrackBar, 2);
             this.gripperTrackBar.LargeChange = 20;
-            this.gripperTrackBar.Location = new System.Drawing.Point(4, 264);
+            this.gripperTrackBar.Location = new System.Drawing.Point(3, 276);
             this.gripperTrackBar.Maximum = 100;
             this.gripperTrackBar.Name = "gripperTrackBar";
-            this.gripperTrackBar.Size = new System.Drawing.Size(248, 53);
+            this.gripperTrackBar.Size = new System.Drawing.Size(251, 57);
             this.gripperTrackBar.TabIndex = 8;
             this.gripperTrackBar.TickFrequency = 10;
             this.gripperTrackBar.Scroll += new System.EventHandler(this.gripperTrackBar_Scroll);
@@ -196,11 +206,12 @@
             this.elevationTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.armControlLayoutPanel.SetColumnSpan(this.elevationTrackBar, 2);
             this.elevationTrackBar.LargeChange = 20;
-            this.elevationTrackBar.Location = new System.Drawing.Point(4, 184);
+            this.elevationTrackBar.Location = new System.Drawing.Point(3, 192);
             this.elevationTrackBar.Maximum = 100;
             this.elevationTrackBar.Name = "elevationTrackBar";
-            this.elevationTrackBar.Size = new System.Drawing.Size(248, 53);
+            this.elevationTrackBar.Size = new System.Drawing.Size(251, 57);
             this.elevationTrackBar.TabIndex = 7;
             this.elevationTrackBar.TickFrequency = 10;
             this.elevationTrackBar.Scroll += new System.EventHandler(this.elevationTrackBar_Scroll);
@@ -210,11 +221,12 @@
             this.extensionTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.armControlLayoutPanel.SetColumnSpan(this.extensionTrackBar, 2);
             this.extensionTrackBar.LargeChange = 20;
-            this.extensionTrackBar.Location = new System.Drawing.Point(4, 104);
+            this.extensionTrackBar.Location = new System.Drawing.Point(3, 108);
             this.extensionTrackBar.Maximum = 100;
             this.extensionTrackBar.Name = "extensionTrackBar";
-            this.extensionTrackBar.Size = new System.Drawing.Size(248, 53);
+            this.extensionTrackBar.Size = new System.Drawing.Size(251, 57);
             this.extensionTrackBar.TabIndex = 6;
             this.extensionTrackBar.TickFrequency = 10;
             this.extensionTrackBar.Scroll += new System.EventHandler(this.extensionTrackBar_Scroll);
@@ -225,9 +237,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rotationLabel.AutoSize = true;
-            this.rotationLabel.Location = new System.Drawing.Point(4, 1);
+            this.armControlLayoutPanel.SetColumnSpan(this.rotationLabel, 2);
+            this.rotationLabel.Location = new System.Drawing.Point(3, 0);
             this.rotationLabel.Name = "rotationLabel";
-            this.rotationLabel.Size = new System.Drawing.Size(248, 19);
+            this.rotationLabel.Size = new System.Drawing.Size(251, 21);
             this.rotationLabel.TabIndex = 0;
             this.rotationLabel.Text = "Rotation: 0";
             this.rotationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -239,9 +252,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.extensionLabel.AutoSize = true;
-            this.extensionLabel.Location = new System.Drawing.Point(4, 81);
+            this.armControlLayoutPanel.SetColumnSpan(this.extensionLabel, 2);
+            this.extensionLabel.Location = new System.Drawing.Point(3, 84);
             this.extensionLabel.Name = "extensionLabel";
-            this.extensionLabel.Size = new System.Drawing.Size(248, 19);
+            this.extensionLabel.Size = new System.Drawing.Size(251, 21);
             this.extensionLabel.TabIndex = 1;
             this.extensionLabel.Text = "Extension: 0";
             this.extensionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -252,9 +266,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.elevationLabel.AutoSize = true;
-            this.elevationLabel.Location = new System.Drawing.Point(4, 161);
+            this.armControlLayoutPanel.SetColumnSpan(this.elevationLabel, 2);
+            this.elevationLabel.Location = new System.Drawing.Point(3, 168);
             this.elevationLabel.Name = "elevationLabel";
-            this.elevationLabel.Size = new System.Drawing.Size(248, 19);
+            this.elevationLabel.Size = new System.Drawing.Size(251, 21);
             this.elevationLabel.TabIndex = 2;
             this.elevationLabel.Text = "Elevation: 0";
             this.elevationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -265,9 +280,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gripperLabel.AutoSize = true;
-            this.gripperLabel.Location = new System.Drawing.Point(4, 241);
+            this.armControlLayoutPanel.SetColumnSpan(this.gripperLabel, 2);
+            this.gripperLabel.Location = new System.Drawing.Point(3, 252);
             this.gripperLabel.Name = "gripperLabel";
-            this.gripperLabel.Size = new System.Drawing.Size(248, 19);
+            this.gripperLabel.Size = new System.Drawing.Size(251, 21);
             this.gripperLabel.TabIndex = 3;
             this.gripperLabel.Text = "Gripper: 0";
             this.gripperLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,9 +294,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.auxLabel.AutoSize = true;
-            this.auxLabel.Location = new System.Drawing.Point(4, 321);
+            this.armControlLayoutPanel.SetColumnSpan(this.auxLabel, 2);
+            this.auxLabel.Location = new System.Drawing.Point(3, 336);
             this.auxLabel.Name = "auxLabel";
-            this.auxLabel.Size = new System.Drawing.Size(248, 19);
+            this.auxLabel.Size = new System.Drawing.Size(251, 21);
             this.auxLabel.TabIndex = 4;
             this.auxLabel.Text = "Aux: 0";
             this.auxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -290,11 +307,12 @@
             this.rotationTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.armControlLayoutPanel.SetColumnSpan(this.rotationTrackBar, 2);
             this.rotationTrackBar.LargeChange = 20;
-            this.rotationTrackBar.Location = new System.Drawing.Point(4, 24);
+            this.rotationTrackBar.Location = new System.Drawing.Point(3, 24);
             this.rotationTrackBar.Maximum = 100;
             this.rotationTrackBar.Name = "rotationTrackBar";
-            this.rotationTrackBar.Size = new System.Drawing.Size(248, 53);
+            this.rotationTrackBar.Size = new System.Drawing.Size(251, 57);
             this.rotationTrackBar.TabIndex = 5;
             this.rotationTrackBar.TickFrequency = 10;
             this.rotationTrackBar.Scroll += new System.EventHandler(this.rotationTrackBar_Scroll);
@@ -308,7 +326,7 @@
             this.framesGroupBox.Location = new System.Drawing.Point(3, 3);
             this.framesGroupBox.Name = "framesGroupBox";
             this.mainLayoutPanel.SetRowSpan(this.framesGroupBox, 3);
-            this.framesGroupBox.Size = new System.Drawing.Size(262, 426);
+            this.framesGroupBox.Size = new System.Drawing.Size(263, 462);
             this.framesGroupBox.TabIndex = 2;
             this.framesGroupBox.TabStop = false;
             this.framesGroupBox.Text = "Frames";
@@ -322,7 +340,7 @@
             "Frame 2: [100,100,100,100,100]"});
             this.framesListBox.Location = new System.Drawing.Point(3, 16);
             this.framesListBox.Name = "framesListBox";
-            this.framesListBox.Size = new System.Drawing.Size(256, 407);
+            this.framesListBox.Size = new System.Drawing.Size(257, 443);
             this.framesListBox.TabIndex = 0;
             // 
             // connectionControlGroupBox
@@ -331,9 +349,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.connectionControlGroupBox.Controls.Add(this.connectionControlTableLayoutPanel);
-            this.connectionControlGroupBox.Location = new System.Drawing.Point(539, 3);
+            this.connectionControlGroupBox.Location = new System.Drawing.Point(541, 3);
             this.connectionControlGroupBox.Name = "connectionControlGroupBox";
-            this.connectionControlGroupBox.Size = new System.Drawing.Size(264, 101);
+            this.connectionControlGroupBox.Size = new System.Drawing.Size(263, 110);
             this.connectionControlGroupBox.TabIndex = 3;
             this.connectionControlGroupBox.TabStop = false;
             this.connectionControlGroupBox.Text = "Connection Control";
@@ -353,7 +371,7 @@
             this.connectionControlTableLayoutPanel.RowCount = 2;
             this.connectionControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.connectionControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.connectionControlTableLayoutPanel.Size = new System.Drawing.Size(258, 82);
+            this.connectionControlTableLayoutPanel.Size = new System.Drawing.Size(257, 91);
             this.connectionControlTableLayoutPanel.TabIndex = 0;
             // 
             // baudRateLabel
@@ -362,7 +380,7 @@
             this.baudRateLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.baudRateLabel.Location = new System.Drawing.Point(3, 0);
             this.baudRateLabel.Name = "baudRateLabel";
-            this.baudRateLabel.Size = new System.Drawing.Size(123, 41);
+            this.baudRateLabel.Size = new System.Drawing.Size(122, 45);
             this.baudRateLabel.TabIndex = 1;
             this.baudRateLabel.Text = "Baud Rate:";
             this.baudRateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -372,9 +390,9 @@
             // 
             this.panel1.Controls.Add(this.baudRateTextBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(132, 3);
+            this.panel1.Location = new System.Drawing.Point(131, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(123, 35);
+            this.panel1.Size = new System.Drawing.Size(123, 39);
             this.panel1.TabIndex = 2;
             // 
             // baudRateTextBox
@@ -393,10 +411,10 @@
             // 
             this.connectionControlTableLayoutPanel.SetColumnSpan(this.connectButton, 2);
             this.connectButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.connectButton.Location = new System.Drawing.Point(15, 49);
+            this.connectButton.Location = new System.Drawing.Point(15, 53);
             this.connectButton.Margin = new System.Windows.Forms.Padding(15, 8, 15, 8);
             this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(228, 25);
+            this.connectButton.Size = new System.Drawing.Size(227, 30);
             this.connectButton.TabIndex = 3;
             this.connectButton.Text = "Connect";
             this.connectButton.UseVisualStyleBackColor = true;
@@ -408,9 +426,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.frameControlGroupBox.Controls.Add(this.FrameControlTableLayoutPanel);
-            this.frameControlGroupBox.Location = new System.Drawing.Point(539, 110);
+            this.frameControlGroupBox.Location = new System.Drawing.Point(541, 119);
             this.frameControlGroupBox.Name = "frameControlGroupBox";
-            this.frameControlGroupBox.Size = new System.Drawing.Size(264, 174);
+            this.frameControlGroupBox.Size = new System.Drawing.Size(263, 189);
             this.frameControlGroupBox.TabIndex = 4;
             this.frameControlGroupBox.TabStop = false;
             this.frameControlGroupBox.Text = "Frame Control";
@@ -424,7 +442,7 @@
             this.FrameControlTableLayoutPanel.Controls.Add(this.overwriteButton, 0, 1);
             this.FrameControlTableLayoutPanel.Controls.Add(this.newFrameButton, 0, 0);
             this.FrameControlTableLayoutPanel.Controls.Add(this.framDurationLabel, 0, 3);
-            this.FrameControlTableLayoutPanel.Controls.Add(this.numericUpDown1, 1, 3);
+            this.FrameControlTableLayoutPanel.Controls.Add(this.numericUpDown2, 1, 3);
             this.FrameControlTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
             this.FrameControlTableLayoutPanel.Name = "FrameControlTableLayoutPanel";
             this.FrameControlTableLayoutPanel.RowCount = 4;
@@ -482,37 +500,36 @@
             this.framDurationLabel.Text = "Frame Duration (ms):";
             this.framDurationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // numericUpDown1
+            // refreshRateNumericUpDown
             // 
-            this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.refreshRateNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.refreshRateNumericUpDown.Increment = new decimal(new int[] {
             25,
             0,
             0,
             0});
-            this.numericUpDown1.Location = new System.Drawing.Point(93, 124);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.refreshRateNumericUpDown.Location = new System.Drawing.Point(105, 423);
+            this.refreshRateNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.refreshRateNumericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(162, 20);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown1.ThousandsSeparator = true;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.refreshRateNumericUpDown.Name = "refreshRateNumericUpDown";
+            this.refreshRateNumericUpDown.Size = new System.Drawing.Size(149, 20);
+            this.refreshRateNumericUpDown.TabIndex = 4;
+            this.refreshRateNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.refreshRateNumericUpDown.ThousandsSeparator = true;
+            this.refreshRateNumericUpDown.Value = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.refreshRateNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // playbackGroupBox
             // 
@@ -520,9 +537,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.playbackGroupBox.Controls.Add(this.PlaybackControlTableLayoutPanel);
-            this.playbackGroupBox.Location = new System.Drawing.Point(539, 290);
+            this.playbackGroupBox.Location = new System.Drawing.Point(541, 314);
             this.playbackGroupBox.Name = "playbackGroupBox";
-            this.playbackGroupBox.Size = new System.Drawing.Size(264, 139);
+            this.playbackGroupBox.Size = new System.Drawing.Size(263, 151);
             this.playbackGroupBox.TabIndex = 5;
             this.playbackGroupBox.TabStop = false;
             this.playbackGroupBox.Text = "Playback Control";
@@ -541,16 +558,16 @@
             this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.PlaybackControlTableLayoutPanel.Size = new System.Drawing.Size(258, 120);
+            this.PlaybackControlTableLayoutPanel.Size = new System.Drawing.Size(257, 132);
             this.PlaybackControlTableLayoutPanel.TabIndex = 1;
             // 
             // stopButton
             // 
             this.stopButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stopButton.Location = new System.Drawing.Point(7, 87);
+            this.stopButton.Location = new System.Drawing.Point(7, 95);
             this.stopButton.Margin = new System.Windows.Forms.Padding(7);
             this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(244, 26);
+            this.stopButton.Size = new System.Drawing.Size(243, 30);
             this.stopButton.TabIndex = 2;
             this.stopButton.Text = "Stop Playback";
             this.stopButton.UseVisualStyleBackColor = true;
@@ -558,10 +575,10 @@
             // playFromSelectedButton
             // 
             this.playFromSelectedButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playFromSelectedButton.Location = new System.Drawing.Point(7, 47);
+            this.playFromSelectedButton.Location = new System.Drawing.Point(7, 51);
             this.playFromSelectedButton.Margin = new System.Windows.Forms.Padding(7);
             this.playFromSelectedButton.Name = "playFromSelectedButton";
-            this.playFromSelectedButton.Size = new System.Drawing.Size(244, 26);
+            this.playFromSelectedButton.Size = new System.Drawing.Size(243, 30);
             this.playFromSelectedButton.TabIndex = 1;
             this.playFromSelectedButton.Text = "Play from Selected Frame";
             this.playFromSelectedButton.UseVisualStyleBackColor = true;
@@ -572,7 +589,7 @@
             this.playFromTopButton.Location = new System.Drawing.Point(7, 7);
             this.playFromTopButton.Margin = new System.Windows.Forms.Padding(7);
             this.playFromTopButton.Name = "playFromTopButton";
-            this.playFromTopButton.Size = new System.Drawing.Size(244, 26);
+            this.playFromTopButton.Size = new System.Drawing.Size(243, 30);
             this.playFromTopButton.TabIndex = 0;
             this.playFromTopButton.Text = "Play from Top";
             this.playFromTopButton.UseVisualStyleBackColor = true;
@@ -583,7 +600,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(806, 24);
+            this.menuStrip.Size = new System.Drawing.Size(807, 24);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -612,9 +629,9 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectionStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 454);
+            this.statusStrip.Location = new System.Drawing.Point(0, 490);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(806, 22);
+            this.statusStrip.Size = new System.Drawing.Size(807, 22);
             this.statusStrip.TabIndex = 4;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -633,11 +650,31 @@
             // 
             this.serialTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(3, 420);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 23);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Refresh Rate:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numericUpDown2.Location = new System.Drawing.Point(93, 124);
+            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(162, 20);
+            this.numericUpDown2.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 476);
+            this.ClientSize = new System.Drawing.Size(807, 512);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.mainLayoutPanel);
             this.Controls.Add(this.menuStrip);
@@ -665,13 +702,14 @@
             this.frameControlGroupBox.ResumeLayout(false);
             this.FrameControlTableLayoutPanel.ResumeLayout(false);
             this.FrameControlTableLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshRateNumericUpDown)).EndInit();
             this.playbackGroupBox.ResumeLayout(false);
             this.PlaybackControlTableLayoutPanel.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -718,8 +756,10 @@
         private System.Windows.Forms.Button playFromTopButton;
         private System.IO.Ports.SerialPort arduinoSerialPort;
         private System.Windows.Forms.Label framDurationLabel;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown refreshRateNumericUpDown;
         private System.Windows.Forms.Timer serialTimer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
     }
 }
 

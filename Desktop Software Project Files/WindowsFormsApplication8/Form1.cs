@@ -99,14 +99,13 @@ namespace WindowsFormsApplication8
             String s5 = String.Format("{0:D3}", servo5);
             if (arduinoSerialPort.IsOpen)
             {
-                arduinoSerialPort.Write(s1+s2+s3+s4+s5);
-                
+                arduinoSerialPort.WriteLine(s1 + s2 + s3 + s4 + s5);
+                rotationLabel.Text = "Rotation: " + s1;
+                extensionLabel.Text = "Extension: " + s2;
+                elevationLabel.Text = "Elevation: " + s3;
+                gripperLabel.Text = "Gripper: " + s4;
+                auxLabel.Text = "Aux: " + s5;
             }
-            rotationLabel.Text = "Rotation: " + s1;
-            extensionLabel.Text = "Extension: " + s2;
-            elevationLabel.Text = "Elevation: " + s3;
-            gripperLabel.Text = "Gripper: " + s4;
-            auxLabel.Text = "Aux: " + s5;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -141,7 +140,7 @@ namespace WindowsFormsApplication8
                 disconnect();
                 //Disable timer
                 serialTimer.Enabled = false;
-                MessageBox.Show("Unable to connect to arduino");
+                MessageBox.Show("Unable to connect to arduino. Check that it is plugged in and driver is installed.","Connection Errror");
 
             }
             
@@ -158,13 +157,18 @@ namespace WindowsFormsApplication8
         {
             try
             {
-                serialTimer.Interval = (int)numericUpDown1.Value;
+                serialTimer.Interval = (int)refreshRateNumericUpDown.Value;
             }
             catch
             {
                 MessageBox.Show("Interval must be larger than 0ms and smaller than 10,000ms");
-                numericUpDown1.Value = 500;
+                refreshRateNumericUpDown.Value = 500;
             }
+        }
+
+        private void armControlLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     }
