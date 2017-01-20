@@ -12,7 +12,6 @@ String readString, servos[5];
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600 );
-  Serial.println("Testing...");
   servo0.attach(3);
   servo1.attach(5);
   servo2.attach(6);
@@ -33,10 +32,7 @@ void loop() {
     Serial.println("Read:");
     for (int i = 0; i <= 4; i++) {
       servos[i] = readString.substring(3 * i, 3 * i + 3);
-      Serial.print(servos[i]);
-      Serial.print(",");
     }
-    Serial.println();
     servo0.write(servos[0].toInt());
     servo1.write(servos[1].toInt());
     servo2.write(servos[2].toInt());
