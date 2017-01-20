@@ -33,16 +33,18 @@
             this.mainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.armControlGroupBox = new System.Windows.Forms.GroupBox();
             this.armControlLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.auxTrackBar = new System.Windows.Forms.TrackBar();
-            this.gripperTrackBar = new System.Windows.Forms.TrackBar();
-            this.elevationTrackBar = new System.Windows.Forms.TrackBar();
-            this.extensionTrackBar = new System.Windows.Forms.TrackBar();
+            this.TrackBar5 = new System.Windows.Forms.TrackBar();
+            this.TrackBar4 = new System.Windows.Forms.TrackBar();
+            this.TrackBar3 = new System.Windows.Forms.TrackBar();
+            this.TrackBar2 = new System.Windows.Forms.TrackBar();
+            this.refreshRateNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.rotationLabel = new System.Windows.Forms.Label();
             this.extensionLabel = new System.Windows.Forms.Label();
             this.elevationLabel = new System.Windows.Forms.Label();
             this.gripperLabel = new System.Windows.Forms.Label();
             this.auxLabel = new System.Windows.Forms.Label();
-            this.rotationTrackBar = new System.Windows.Forms.TrackBar();
+            this.TrackBar1 = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
             this.framesGroupBox = new System.Windows.Forms.GroupBox();
             this.framesListBox = new System.Windows.Forms.ListBox();
             this.connectionControlGroupBox = new System.Windows.Forms.GroupBox();
@@ -57,7 +59,7 @@
             this.overwriteButton = new System.Windows.Forms.Button();
             this.newFrameButton = new System.Windows.Forms.Button();
             this.framDurationLabel = new System.Windows.Forms.Label();
-            this.refreshRateNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.durrationNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.playbackGroupBox = new System.Windows.Forms.GroupBox();
             this.PlaybackControlTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.stopButton = new System.Windows.Forms.Button();
@@ -71,28 +73,26 @@
             this.connectionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.arduinoSerialPort = new System.IO.Ports.SerialPort(this.components);
             this.serialTimer = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.mainLayoutPanel.SuspendLayout();
             this.armControlGroupBox.SuspendLayout();
             this.armControlLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.auxTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gripperTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elevationTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.extensionTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rotationTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBar5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBar4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshRateNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBar1)).BeginInit();
             this.framesGroupBox.SuspendLayout();
             this.connectionControlGroupBox.SuspendLayout();
             this.connectionControlTableLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.frameControlGroupBox.SuspendLayout();
             this.FrameControlTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.refreshRateNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.durrationNumericUpDown)).BeginInit();
             this.playbackGroupBox.SuspendLayout();
             this.PlaybackControlTableLayoutPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLayoutPanel
@@ -139,17 +139,17 @@
             this.armControlLayoutPanel.ColumnCount = 2;
             this.armControlLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.armControlLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.armControlLayoutPanel.Controls.Add(this.auxTrackBar, 0, 9);
-            this.armControlLayoutPanel.Controls.Add(this.gripperTrackBar, 0, 7);
-            this.armControlLayoutPanel.Controls.Add(this.elevationTrackBar, 0, 5);
-            this.armControlLayoutPanel.Controls.Add(this.extensionTrackBar, 0, 3);
+            this.armControlLayoutPanel.Controls.Add(this.TrackBar5, 0, 9);
+            this.armControlLayoutPanel.Controls.Add(this.TrackBar4, 0, 7);
+            this.armControlLayoutPanel.Controls.Add(this.TrackBar3, 0, 5);
+            this.armControlLayoutPanel.Controls.Add(this.TrackBar2, 0, 3);
             this.armControlLayoutPanel.Controls.Add(this.refreshRateNumericUpDown, 1, 10);
             this.armControlLayoutPanel.Controls.Add(this.rotationLabel, 0, 0);
             this.armControlLayoutPanel.Controls.Add(this.extensionLabel, 0, 2);
             this.armControlLayoutPanel.Controls.Add(this.elevationLabel, 0, 4);
             this.armControlLayoutPanel.Controls.Add(this.gripperLabel, 0, 6);
             this.armControlLayoutPanel.Controls.Add(this.auxLabel, 0, 8);
-            this.armControlLayoutPanel.Controls.Add(this.rotationTrackBar, 0, 1);
+            this.armControlLayoutPanel.Controls.Add(this.TrackBar1, 0, 1);
             this.armControlLayoutPanel.Controls.Add(this.label2, 0, 10);
             this.armControlLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.armControlLayoutPanel.Location = new System.Drawing.Point(3, 16);
@@ -171,65 +171,96 @@
             this.armControlLayoutPanel.TabIndex = 0;
             this.armControlLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.armControlLayoutPanel_Paint);
             // 
-            // auxTrackBar
+            // TrackBar5
             // 
-            this.auxTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TrackBar5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.armControlLayoutPanel.SetColumnSpan(this.auxTrackBar, 2);
-            this.auxTrackBar.LargeChange = 20;
-            this.auxTrackBar.Location = new System.Drawing.Point(3, 360);
-            this.auxTrackBar.Maximum = 100;
-            this.auxTrackBar.Name = "auxTrackBar";
-            this.auxTrackBar.Size = new System.Drawing.Size(251, 57);
-            this.auxTrackBar.TabIndex = 9;
-            this.auxTrackBar.TickFrequency = 10;
-            this.auxTrackBar.Scroll += new System.EventHandler(this.auxTrackBar_Scroll);
+            this.armControlLayoutPanel.SetColumnSpan(this.TrackBar5, 2);
+            this.TrackBar5.LargeChange = 20;
+            this.TrackBar5.Location = new System.Drawing.Point(3, 360);
+            this.TrackBar5.Maximum = 100;
+            this.TrackBar5.Name = "TrackBar5";
+            this.TrackBar5.Size = new System.Drawing.Size(251, 57);
+            this.TrackBar5.TabIndex = 9;
+            this.TrackBar5.TickFrequency = 10;
+            this.TrackBar5.Scroll += new System.EventHandler(this.auxTrackBar_Scroll);
             // 
-            // gripperTrackBar
+            // TrackBar4
             // 
-            this.gripperTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TrackBar4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.armControlLayoutPanel.SetColumnSpan(this.gripperTrackBar, 2);
-            this.gripperTrackBar.LargeChange = 20;
-            this.gripperTrackBar.Location = new System.Drawing.Point(3, 276);
-            this.gripperTrackBar.Maximum = 100;
-            this.gripperTrackBar.Name = "gripperTrackBar";
-            this.gripperTrackBar.Size = new System.Drawing.Size(251, 57);
-            this.gripperTrackBar.TabIndex = 8;
-            this.gripperTrackBar.TickFrequency = 10;
-            this.gripperTrackBar.Scroll += new System.EventHandler(this.gripperTrackBar_Scroll);
+            this.armControlLayoutPanel.SetColumnSpan(this.TrackBar4, 2);
+            this.TrackBar4.LargeChange = 20;
+            this.TrackBar4.Location = new System.Drawing.Point(3, 276);
+            this.TrackBar4.Maximum = 100;
+            this.TrackBar4.Name = "TrackBar4";
+            this.TrackBar4.Size = new System.Drawing.Size(251, 57);
+            this.TrackBar4.TabIndex = 8;
+            this.TrackBar4.TickFrequency = 10;
+            this.TrackBar4.Scroll += new System.EventHandler(this.gripperTrackBar_Scroll);
             // 
-            // elevationTrackBar
+            // TrackBar3
             // 
-            this.elevationTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TrackBar3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.armControlLayoutPanel.SetColumnSpan(this.elevationTrackBar, 2);
-            this.elevationTrackBar.LargeChange = 20;
-            this.elevationTrackBar.Location = new System.Drawing.Point(3, 192);
-            this.elevationTrackBar.Maximum = 100;
-            this.elevationTrackBar.Name = "elevationTrackBar";
-            this.elevationTrackBar.Size = new System.Drawing.Size(251, 57);
-            this.elevationTrackBar.TabIndex = 7;
-            this.elevationTrackBar.TickFrequency = 10;
-            this.elevationTrackBar.Scroll += new System.EventHandler(this.elevationTrackBar_Scroll);
+            this.armControlLayoutPanel.SetColumnSpan(this.TrackBar3, 2);
+            this.TrackBar3.LargeChange = 20;
+            this.TrackBar3.Location = new System.Drawing.Point(3, 192);
+            this.TrackBar3.Maximum = 100;
+            this.TrackBar3.Name = "TrackBar3";
+            this.TrackBar3.Size = new System.Drawing.Size(251, 57);
+            this.TrackBar3.TabIndex = 7;
+            this.TrackBar3.TickFrequency = 10;
+            this.TrackBar3.Scroll += new System.EventHandler(this.elevationTrackBar_Scroll);
             // 
-            // extensionTrackBar
+            // TrackBar2
             // 
-            this.extensionTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TrackBar2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.armControlLayoutPanel.SetColumnSpan(this.extensionTrackBar, 2);
-            this.extensionTrackBar.LargeChange = 20;
-            this.extensionTrackBar.Location = new System.Drawing.Point(3, 108);
-            this.extensionTrackBar.Maximum = 100;
-            this.extensionTrackBar.Name = "extensionTrackBar";
-            this.extensionTrackBar.Size = new System.Drawing.Size(251, 57);
-            this.extensionTrackBar.TabIndex = 6;
-            this.extensionTrackBar.TickFrequency = 10;
-            this.extensionTrackBar.Scroll += new System.EventHandler(this.extensionTrackBar_Scroll);
+            this.armControlLayoutPanel.SetColumnSpan(this.TrackBar2, 2);
+            this.TrackBar2.LargeChange = 20;
+            this.TrackBar2.Location = new System.Drawing.Point(3, 108);
+            this.TrackBar2.Maximum = 100;
+            this.TrackBar2.Name = "TrackBar2";
+            this.TrackBar2.Size = new System.Drawing.Size(251, 57);
+            this.TrackBar2.TabIndex = 6;
+            this.TrackBar2.TickFrequency = 10;
+            this.TrackBar2.Scroll += new System.EventHandler(this.extensionTrackBar_Scroll);
+            // 
+            // refreshRateNumericUpDown
+            // 
+            this.refreshRateNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.refreshRateNumericUpDown.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.refreshRateNumericUpDown.Location = new System.Drawing.Point(105, 423);
+            this.refreshRateNumericUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.refreshRateNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.refreshRateNumericUpDown.Name = "refreshRateNumericUpDown";
+            this.refreshRateNumericUpDown.Size = new System.Drawing.Size(149, 20);
+            this.refreshRateNumericUpDown.TabIndex = 4;
+            this.refreshRateNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.refreshRateNumericUpDown.ThousandsSeparator = true;
+            this.refreshRateNumericUpDown.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.refreshRateNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // rotationLabel
             // 
@@ -302,20 +333,31 @@
             this.auxLabel.Text = "Aux: 0";
             this.auxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // rotationTrackBar
+            // TrackBar1
             // 
-            this.rotationTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TrackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.armControlLayoutPanel.SetColumnSpan(this.rotationTrackBar, 2);
-            this.rotationTrackBar.LargeChange = 20;
-            this.rotationTrackBar.Location = new System.Drawing.Point(3, 24);
-            this.rotationTrackBar.Maximum = 100;
-            this.rotationTrackBar.Name = "rotationTrackBar";
-            this.rotationTrackBar.Size = new System.Drawing.Size(251, 57);
-            this.rotationTrackBar.TabIndex = 5;
-            this.rotationTrackBar.TickFrequency = 10;
-            this.rotationTrackBar.Scroll += new System.EventHandler(this.rotationTrackBar_Scroll);
+            this.armControlLayoutPanel.SetColumnSpan(this.TrackBar1, 2);
+            this.TrackBar1.LargeChange = 20;
+            this.TrackBar1.Location = new System.Drawing.Point(3, 24);
+            this.TrackBar1.Maximum = 100;
+            this.TrackBar1.Name = "TrackBar1";
+            this.TrackBar1.Size = new System.Drawing.Size(251, 57);
+            this.TrackBar1.TabIndex = 5;
+            this.TrackBar1.TickFrequency = 10;
+            this.TrackBar1.Scroll += new System.EventHandler(this.rotationTrackBar_Scroll);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(3, 420);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 23);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Refresh Rate:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // framesGroupBox
             // 
@@ -335,13 +377,11 @@
             // 
             this.framesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.framesListBox.FormattingEnabled = true;
-            this.framesListBox.Items.AddRange(new object[] {
-            "Frame 1: [0,0,0,0,0]",
-            "Frame 2: [100,100,100,100,100]"});
             this.framesListBox.Location = new System.Drawing.Point(3, 16);
             this.framesListBox.Name = "framesListBox";
             this.framesListBox.Size = new System.Drawing.Size(257, 443);
             this.framesListBox.TabIndex = 0;
+            this.framesListBox.SelectedIndexChanged += new System.EventHandler(this.framesListBox_SelectedIndexChanged);
             // 
             // connectionControlGroupBox
             // 
@@ -442,7 +482,7 @@
             this.FrameControlTableLayoutPanel.Controls.Add(this.overwriteButton, 0, 1);
             this.FrameControlTableLayoutPanel.Controls.Add(this.newFrameButton, 0, 0);
             this.FrameControlTableLayoutPanel.Controls.Add(this.framDurationLabel, 0, 3);
-            this.FrameControlTableLayoutPanel.Controls.Add(this.numericUpDown2, 1, 3);
+            this.FrameControlTableLayoutPanel.Controls.Add(this.durrationNumericUpDown, 1, 3);
             this.FrameControlTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
             this.FrameControlTableLayoutPanel.Name = "FrameControlTableLayoutPanel";
             this.FrameControlTableLayoutPanel.RowCount = 4;
@@ -464,6 +504,7 @@
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Delete Selected Frame";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // overwriteButton
             // 
@@ -476,6 +517,7 @@
             this.overwriteButton.TabIndex = 1;
             this.overwriteButton.Text = "Overwrite Current Frame";
             this.overwriteButton.UseVisualStyleBackColor = true;
+            this.overwriteButton.Click += new System.EventHandler(this.overwriteButton_Click);
             // 
             // newFrameButton
             // 
@@ -488,6 +530,7 @@
             this.newFrameButton.TabIndex = 0;
             this.newFrameButton.Text = "Save as New Frame";
             this.newFrameButton.UseVisualStyleBackColor = true;
+            this.newFrameButton.Click += new System.EventHandler(this.newFrameButton_Click);
             // 
             // framDurationLabel
             // 
@@ -500,36 +543,29 @@
             this.framDurationLabel.Text = "Frame Duration (ms):";
             this.framDurationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // refreshRateNumericUpDown
+            // durrationNumericUpDown
             // 
-            this.refreshRateNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.refreshRateNumericUpDown.Increment = new decimal(new int[] {
-            25,
-            0,
-            0,
-            0});
-            this.refreshRateNumericUpDown.Location = new System.Drawing.Point(105, 423);
-            this.refreshRateNumericUpDown.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.refreshRateNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.refreshRateNumericUpDown.Name = "refreshRateNumericUpDown";
-            this.refreshRateNumericUpDown.Size = new System.Drawing.Size(149, 20);
-            this.refreshRateNumericUpDown.TabIndex = 4;
-            this.refreshRateNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.refreshRateNumericUpDown.ThousandsSeparator = true;
-            this.refreshRateNumericUpDown.Value = new decimal(new int[] {
+            this.durrationNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.durrationNumericUpDown.Increment = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            this.refreshRateNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.durrationNumericUpDown.Location = new System.Drawing.Point(93, 124);
+            this.durrationNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.durrationNumericUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.durrationNumericUpDown.Name = "durrationNumericUpDown";
+            this.durrationNumericUpDown.Size = new System.Drawing.Size(162, 20);
+            this.durrationNumericUpDown.TabIndex = 4;
+            this.durrationNumericUpDown.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             // 
             // playbackGroupBox
             // 
@@ -650,26 +686,6 @@
             // 
             this.serialTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 420);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 23);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Refresh Rate:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown2.Location = new System.Drawing.Point(93, 124);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(162, 20);
-            this.numericUpDown2.TabIndex = 4;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -687,11 +703,12 @@
             this.armControlGroupBox.PerformLayout();
             this.armControlLayoutPanel.ResumeLayout(false);
             this.armControlLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.auxTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gripperTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elevationTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.extensionTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rotationTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBar5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBar4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshRateNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBar1)).EndInit();
             this.framesGroupBox.ResumeLayout(false);
             this.connectionControlGroupBox.ResumeLayout(false);
             this.connectionControlGroupBox.PerformLayout();
@@ -702,14 +719,13 @@
             this.frameControlGroupBox.ResumeLayout(false);
             this.FrameControlTableLayoutPanel.ResumeLayout(false);
             this.FrameControlTableLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.refreshRateNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.durrationNumericUpDown)).EndInit();
             this.playbackGroupBox.ResumeLayout(false);
             this.PlaybackControlTableLayoutPanel.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -728,16 +744,16 @@
         private System.Windows.Forms.GroupBox frameControlGroupBox;
         private System.Windows.Forms.GroupBox playbackGroupBox;
         private System.Windows.Forms.TableLayoutPanel armControlLayoutPanel;
-        private System.Windows.Forms.TrackBar auxTrackBar;
-        private System.Windows.Forms.TrackBar gripperTrackBar;
-        private System.Windows.Forms.TrackBar elevationTrackBar;
-        private System.Windows.Forms.TrackBar extensionTrackBar;
+        private System.Windows.Forms.TrackBar TrackBar5;
+        private System.Windows.Forms.TrackBar TrackBar4;
+        private System.Windows.Forms.TrackBar TrackBar3;
+        private System.Windows.Forms.TrackBar TrackBar2;
         private System.Windows.Forms.Label rotationLabel;
         private System.Windows.Forms.Label extensionLabel;
         private System.Windows.Forms.Label elevationLabel;
         private System.Windows.Forms.Label gripperLabel;
         private System.Windows.Forms.Label auxLabel;
-        private System.Windows.Forms.TrackBar rotationTrackBar;
+        private System.Windows.Forms.TrackBar TrackBar1;
         private System.Windows.Forms.ListBox framesListBox;
         private System.Windows.Forms.TableLayoutPanel connectionControlTableLayoutPanel;
         private System.Windows.Forms.Label baudRateLabel;
@@ -759,7 +775,7 @@
         private System.Windows.Forms.NumericUpDown refreshRateNumericUpDown;
         private System.Windows.Forms.Timer serialTimer;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown durrationNumericUpDown;
     }
 }
 

@@ -17,7 +17,6 @@ namespace WindowsFormsApplication8
         {
             InitializeComponent();
             
-            
 
         }
 
@@ -49,31 +48,31 @@ namespace WindowsFormsApplication8
         int servo5 = 0;
         private void rotationTrackBar_Scroll(object sender, EventArgs e)//On Rotation Track Bar Update
         {
-            servo1 = rotationTrackBar.Value;
+            servo1 = TrackBar1.Value;
             
         }
 
         private void extensionTrackBar_Scroll(object sender, EventArgs e) //On Extension Track Bar Update
         {
-            servo2 = extensionTrackBar.Value;
+            servo2 = TrackBar2.Value;
             
         }
 
         private void elevationTrackBar_Scroll(object sender, EventArgs e)//On Elevation Track Bar Update
         {
-            servo3 = elevationTrackBar.Value;
+            servo3 = TrackBar3.Value;
            
         }
 
         private void gripperTrackBar_Scroll(object sender, EventArgs e)//On Gripper Track Bar Update
         {
-            servo4 = gripperTrackBar.Value;
+            servo4 = TrackBar4.Value;
             
         }
 
         private void auxTrackBar_Scroll(object sender, EventArgs e)//On Aux Track Bar Update
         {
-            servo5 = auxTrackBar.Value;
+            servo5 = TrackBar5.Value;
             
         }
 
@@ -145,6 +144,7 @@ namespace WindowsFormsApplication8
             }
             
         }
+        
 
         private void disconnect()
         {
@@ -169,6 +169,86 @@ namespace WindowsFormsApplication8
         private void armControlLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        List<int[]> framesList = new List<int[]>();
+        private void newFrameButton_Click(object sender, EventArgs e) //Add frame
+        {
+            if (framesListBox.SelectedIndex > 0)
+            {
+                int duration = (int)durrationNumericUpDown.Value;
+                framesList.Insert(framesListBox.SelectedIndex, new int[] { servo1, servo2, servo3, servo4, servo5, duration });
+                String add = listToString();
+                framesListBox.Items.Insert(framesListBox.SelectedIndex, add);
+                framesListBox.SelectedIndex = framesList.Count() - 1;
+            }
+            else
+            {
+                int duration = (int)durrationNumericUpDown.Value;
+                framesList.Add(new int[] { servo1, servo2, servo3, servo4, servo5, duration });
+                String add = listToString();
+                framesListBox.Items.Add( add);
+                framesListBox.SelectedIndex = framesList.Count() - 1;
+            }
+        }
+
+        private void framesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+            int selected = framesListBox.SelectedIndex;
+            Console.WriteLine(selected);
+            int[] selectedArray = framesList[selected];
+            servo1 = TrackBar1.Value = selectedArray[0];
+            servo2 = TrackBar2.Value = selectedArray[1];
+            servo3 = TrackBar3.Value = selectedArray[2];
+            servo4 = TrackBar4.Value = selectedArray[3];
+            servo5 = TrackBar5.Value = selectedArray[4];
+            durrationNumericUpDown.Value = selectedArray[5];
+            sendSerial();
+                }
+            catch { }
+        }
+
+        private void overwriteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedIndex = framesListBox.SelectedIndex;
+                framesList[selectedIndex] = new int[] { TrackBar1.Value, TrackBar2.Value, TrackBar3.Value, TrackBar4.Value, TrackBar5.Value, (int)durrationNumericUpDown.Value };
+                framesListBox.Items.Insert(selectedIndex, listToString());
+                framesListBox.Items.RemoveAt(selectedIndex + 1);
+                framesListBox.SelectedIndex = selectedIndex;
+                framesListBox.Select();
+                framesListBox.Focus();
+
+            }
+            catch { }
+        }
+        private String listToString()
+        {
+            int duration = (int)durrationNumericUpDown.Value;
+            String add = "[";
+            add += servo1.ToString("000");
+            add += ",";
+            add += servo2.ToString("000");
+            add += ",";
+            add += servo3.ToString("000");
+            add += ",";
+            add += servo4.ToString("000");
+            add += ",";
+            add += servo5.ToString("000");
+            add += "]";
+            add += " Durration:";
+            add += duration.ToString("0000");
+            return add;
+
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            int selected = framesListBox.SelectedIndex;
+            framesList.RemoveAt(selected);
+            framesListBox.Items.RemoveAt(selected);
+            framesListBox.ClearSelected();
         }
     }
     }
