@@ -14,6 +14,10 @@ void setup() {
   Serial.begin(9600 );
   Serial.println("Testing...");
   servo0.attach(3);
+  servo1.attach(5);
+  servo2.attach(6);
+  servo3.attach(9);
+  servo4.attach(10);
 }
 
 void loop() {
@@ -34,6 +38,10 @@ void loop() {
     }
     Serial.println();
     servo0.write(servos[0].toInt());
+    servo1.write(servos[1].toInt());
+    servo2.write(servos[2].toInt());
+    servo3.write(servos[3].toInt());
+    servo4.write(servos[4].toInt());
     readString = "";
   }
 }
