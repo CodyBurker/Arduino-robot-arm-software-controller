@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -113,11 +114,14 @@ namespace WindowsFormsApplication8
             int baud = int.Parse(baudRateTextBox.Text.ToString());
             //Set Baud Rate in Serial Connector
             arduinoSerialPort.BaudRate = baud;
-            //Set COM port - Eventually this should be an option on the form
-            arduinoSerialPort.PortName = "COM3";
-            //Attempt to open port, send message, and close port
+           
             try
             {
+                //Get all serial ports
+                String[] list = SerialPort.GetPortNames();
+                //Set port to first in list
+                arduinoSerialPort.PortName = list[0];
+                //Attempt to open port, send message, and close port
                 //Open port
                 arduinoSerialPort.Open();
                 //Set status text at bottom of form

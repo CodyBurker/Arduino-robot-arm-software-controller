@@ -29,8 +29,11 @@ void loop() {
     Serial.println("Read:");
     for (int i = 0; i <= 4; i++) {
       servos[i] = readString.substring(3 * i, 3 * i + 3);
+      Serial.print(servos[i]);
+      Serial.print(",");
     }
-    servo0.write(map(servos[0].toInt(),0,100,20,160));
+    Serial.println();
+    servo0.write(servos[0].toInt());
     readString = "";
   }
 }

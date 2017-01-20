@@ -341,7 +341,7 @@
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar1, 2);
             this.TrackBar1.LargeChange = 20;
             this.TrackBar1.Location = new System.Drawing.Point(3, 24);
-            this.TrackBar1.Maximum = 100;
+            this.TrackBar1.Maximum = 180;
             this.TrackBar1.Name = "TrackBar1";
             this.TrackBar1.Size = new System.Drawing.Size(251, 57);
             this.TrackBar1.TabIndex = 5;
