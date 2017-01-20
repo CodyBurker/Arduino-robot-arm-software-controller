@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -253,6 +254,20 @@ namespace WindowsFormsApplication8
             framesList.RemoveAt(selected);
             framesListBox.Items.RemoveAt(selected);
             framesListBox.ClearSelected();
+        }
+
+        private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.ShowDialog();
+            String fileAddress = saveFileDialog.FileName;
+            TextWriter file = new StreamWriter(fileAddress);
+            file.WriteLine("Testing..");
+            file.Close();
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
     }

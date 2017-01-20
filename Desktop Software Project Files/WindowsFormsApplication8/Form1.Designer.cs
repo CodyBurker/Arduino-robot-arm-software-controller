@@ -73,6 +73,7 @@
             this.connectionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.arduinoSerialPort = new System.IO.Ports.SerialPort(this.components);
             this.serialTimer = new System.Windows.Forms.Timer(this.components);
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.mainLayoutPanel.SuspendLayout();
             this.armControlGroupBox.SuspendLayout();
             this.armControlLayoutPanel.SuspendLayout();
@@ -660,6 +661,7 @@
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
             this.saveToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem1.Text = "Save";
+            this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
             // statusStrip
             // 
@@ -685,6 +687,12 @@
             // serialTimer
             // 
             this.serialTimer.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "txt";
+            this.saveFileDialog.Title = "Save frames...";
+            this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
             // Form1
             // 
@@ -776,6 +784,7 @@
         private System.Windows.Forms.Timer serialTimer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown durrationNumericUpDown;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

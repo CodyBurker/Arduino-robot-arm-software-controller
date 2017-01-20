@@ -19,3 +19,4 @@
 \\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\bin\Debug\WindowsFormsApplication8.application
 \\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\WindowsFormsApplication8.exe.manifest
 \\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\WindowsFormsApplication8.application
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\Arduino Robot Arm Control.csprojResolveAssemblyReference.cache
