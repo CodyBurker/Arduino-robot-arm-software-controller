@@ -84,6 +84,7 @@ namespace WindowsFormsApplication8
             {
                 serialTimer.Enabled = false;
                 disconnect(); //Set labels and status to off
+                isPlaying(false); //Stop playback
                 
             }
             else //Otherwise turn timer on it on
@@ -120,13 +121,26 @@ namespace WindowsFormsApplication8
             {
                 //Get all serial ports
                 String[] list = SerialPort.GetPortNames();
-                //Set port to first in list
-                arduinoSerialPort.PortName = list[0];
+                String portName;
+                if (serialPortNumericUpDown.Value<= list.Length)
+                {
+                    //Set port to number selected
+                    arduinoSerialPort.PortName = list[0];
+                    portName = list[(int) serialPortNumericUpDown.Value - 1];
+                }
+                else
+                {
+                    //Set port to first port available
+                    serialPortNumericUpDown.Value = 1;
+                    arduinoSerialPort.PortName = list[0];
+                    portName = list[0];
+                }
                 //Attempt to open port, send message, and close port
                 //Open port
                 arduinoSerialPort.Open();
                 //Set status text at bottom of form
-                connectionStatusLabel.Text = "Connected";
+                connectionStatusLabel.Text = "Connected on Port: " + portName;
+                
                 //Set button text
                 connectButton.Text = "Disconnect";
                 //Send the message to the arduino
@@ -267,6 +281,91 @@ namespace WindowsFormsApplication8
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
+
+        }
+
+        private void serialPortNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void playFromTopButton_Click(object sender, EventArgs e)
+        {
+            currentFrame = 0;
+            isPlaying(true);//Start playback
+
+        }
+        bool playing = false;
+        private void isPlaying(bool onOff) //method to start or stop playback
+        {
+            playing = onOff;
+            playbackTimer.Enabled = onOff;
+            //Disable all controls while playing back
+            onOff = !onOff;
+            TrackBar1.Enabled = onOff;
+            TrackBar2.Enabled = onOff;
+            TrackBar3.Enabled = onOff;
+            TrackBar4.Enabled = onOff;
+            TrackBar5.Enabled = onOff;
+            newFrameButton.Enabled = onOff;
+            overwriteButton.Enabled = onOff;
+            deleteButton.Enabled = onOff;
+            durrationNumericUpDown.Enabled = onOff;
+
+        }
+
+        private void playFromSelectedButton_Click(object sender, EventArgs e)
+        {
+            currentFrame = framesListBox.SelectedIndex; //Set initial frame
+            isPlaying(true);//Start playback
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            isPlaying(false);
+        }
+        int currentFrame = 0; //Keep track of the current frame
+        private void playbackTimer_Tick(object sender, EventArgs e)
+        {
+            //Select listBox for current frame
+            framesListBox.Select();
+            framesListBox.SelectedIndex = currentFrame;
+            //Load frame
+            int[] currentFrameArray = framesList[currentFrame];//Get the current frame
+            //Load frame into servo variables
+            servo1 = currentFrameArray[0];
+            servo2 = currentFrameArray[1];
+            servo3 = currentFrameArray[2];
+            servo4 = currentFrameArray[3];
+            servo5 = currentFrameArray[4];
+            //Load frame into trackbar values
+            TrackBar1.Value = currentFrameArray[0];
+            TrackBar2.Value = currentFrameArray[1];
+            TrackBar3.Value = currentFrameArray[2];
+            TrackBar4.Value = currentFrameArray[3];
+            TrackBar5.Value = currentFrameArray[4];
+            //Send via serial
+            sendSerial();
+            //Check for last frame
+            if(framesList.Count > currentFrame + 1)
+            {
+                //If not, change interval and incrmeent frame
+                playbackTimer.Interval = currentFrameArray[5];
+                currentFrame++;
+            }
+            else
+            {
+                //Otherwise
+                if (loopCheckBox.Checked) //If loop then go to top
+                {
+                    currentFrame = 0;
+                }
+                else
+                { //Otherwise stop playback
+                    isPlaying(false);
+                }
+                
+            }
+            
 
         }
     }

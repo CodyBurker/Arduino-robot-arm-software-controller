@@ -49,6 +49,8 @@
             this.framesListBox = new System.Windows.Forms.ListBox();
             this.connectionControlGroupBox = new System.Windows.Forms.GroupBox();
             this.connectionControlTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.serialPortPickerLabel = new System.Windows.Forms.Label();
+            this.serialPortNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.baudRateLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.baudRateTextBox = new System.Windows.Forms.TextBox();
@@ -74,6 +76,9 @@
             this.arduinoSerialPort = new System.IO.Ports.SerialPort(this.components);
             this.serialTimer = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.playbackTimer = new System.Windows.Forms.Timer(this.components);
+            this.loop = new System.Windows.Forms.Label();
+            this.loopCheckBox = new System.Windows.Forms.CheckBox();
             this.mainLayoutPanel.SuspendLayout();
             this.armControlGroupBox.SuspendLayout();
             this.armControlLayoutPanel.SuspendLayout();
@@ -86,6 +91,7 @@
             this.framesGroupBox.SuspendLayout();
             this.connectionControlGroupBox.SuspendLayout();
             this.connectionControlTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.serialPortNumericUpDown)).BeginInit();
             this.panel1.SuspendLayout();
             this.frameControlGroupBox.SuspendLayout();
             this.FrameControlTableLayoutPanel.SuspendLayout();
@@ -117,7 +123,7 @@
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.91694F));
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.86047F));
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.22259F));
-            this.mainLayoutPanel.Size = new System.Drawing.Size(807, 488);
+            this.mainLayoutPanel.Size = new System.Drawing.Size(807, 558);
             this.mainLayoutPanel.TabIndex = 2;
             // 
             // armControlGroupBox
@@ -129,7 +135,7 @@
             this.armControlGroupBox.Location = new System.Drawing.Point(272, 3);
             this.armControlGroupBox.Name = "armControlGroupBox";
             this.mainLayoutPanel.SetRowSpan(this.armControlGroupBox, 3);
-            this.armControlGroupBox.Size = new System.Drawing.Size(263, 462);
+            this.armControlGroupBox.Size = new System.Drawing.Size(263, 532);
             this.armControlGroupBox.TabIndex = 1;
             this.armControlGroupBox.TabStop = false;
             this.armControlGroupBox.Text = "Arm Control";
@@ -168,7 +174,7 @@
             this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.armControlLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.armControlLayoutPanel.Size = new System.Drawing.Size(257, 443);
+            this.armControlLayoutPanel.Size = new System.Drawing.Size(257, 513);
             this.armControlLayoutPanel.TabIndex = 0;
             this.armControlLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.armControlLayoutPanel_Paint);
             // 
@@ -179,10 +185,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar5, 2);
             this.TrackBar5.LargeChange = 20;
-            this.TrackBar5.Location = new System.Drawing.Point(3, 360);
+            this.TrackBar5.Location = new System.Drawing.Point(3, 415);
             this.TrackBar5.Maximum = 100;
             this.TrackBar5.Name = "TrackBar5";
-            this.TrackBar5.Size = new System.Drawing.Size(251, 57);
+            this.TrackBar5.Size = new System.Drawing.Size(251, 67);
             this.TrackBar5.TabIndex = 9;
             this.TrackBar5.TickFrequency = 10;
             this.TrackBar5.Scroll += new System.EventHandler(this.auxTrackBar_Scroll);
@@ -194,10 +200,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar4, 2);
             this.TrackBar4.LargeChange = 20;
-            this.TrackBar4.Location = new System.Drawing.Point(3, 276);
+            this.TrackBar4.Location = new System.Drawing.Point(3, 318);
             this.TrackBar4.Maximum = 100;
             this.TrackBar4.Name = "TrackBar4";
-            this.TrackBar4.Size = new System.Drawing.Size(251, 57);
+            this.TrackBar4.Size = new System.Drawing.Size(251, 67);
             this.TrackBar4.TabIndex = 8;
             this.TrackBar4.TickFrequency = 10;
             this.TrackBar4.Scroll += new System.EventHandler(this.gripperTrackBar_Scroll);
@@ -209,10 +215,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar3, 2);
             this.TrackBar3.LargeChange = 20;
-            this.TrackBar3.Location = new System.Drawing.Point(3, 192);
+            this.TrackBar3.Location = new System.Drawing.Point(3, 221);
             this.TrackBar3.Maximum = 100;
             this.TrackBar3.Name = "TrackBar3";
-            this.TrackBar3.Size = new System.Drawing.Size(251, 57);
+            this.TrackBar3.Size = new System.Drawing.Size(251, 67);
             this.TrackBar3.TabIndex = 7;
             this.TrackBar3.TickFrequency = 10;
             this.TrackBar3.Scroll += new System.EventHandler(this.elevationTrackBar_Scroll);
@@ -224,10 +230,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar2, 2);
             this.TrackBar2.LargeChange = 20;
-            this.TrackBar2.Location = new System.Drawing.Point(3, 108);
+            this.TrackBar2.Location = new System.Drawing.Point(3, 124);
             this.TrackBar2.Maximum = 100;
             this.TrackBar2.Name = "TrackBar2";
-            this.TrackBar2.Size = new System.Drawing.Size(251, 57);
+            this.TrackBar2.Size = new System.Drawing.Size(251, 67);
             this.TrackBar2.TabIndex = 6;
             this.TrackBar2.TickFrequency = 10;
             this.TrackBar2.Scroll += new System.EventHandler(this.extensionTrackBar_Scroll);
@@ -240,7 +246,7 @@
             0,
             0,
             0});
-            this.refreshRateNumericUpDown.Location = new System.Drawing.Point(105, 423);
+            this.refreshRateNumericUpDown.Location = new System.Drawing.Point(105, 488);
             this.refreshRateNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -272,7 +278,7 @@
             this.armControlLayoutPanel.SetColumnSpan(this.rotationLabel, 2);
             this.rotationLabel.Location = new System.Drawing.Point(3, 0);
             this.rotationLabel.Name = "rotationLabel";
-            this.rotationLabel.Size = new System.Drawing.Size(251, 21);
+            this.rotationLabel.Size = new System.Drawing.Size(251, 24);
             this.rotationLabel.TabIndex = 0;
             this.rotationLabel.Text = "Rotation: 0";
             this.rotationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -285,9 +291,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.extensionLabel.AutoSize = true;
             this.armControlLayoutPanel.SetColumnSpan(this.extensionLabel, 2);
-            this.extensionLabel.Location = new System.Drawing.Point(3, 84);
+            this.extensionLabel.Location = new System.Drawing.Point(3, 97);
             this.extensionLabel.Name = "extensionLabel";
-            this.extensionLabel.Size = new System.Drawing.Size(251, 21);
+            this.extensionLabel.Size = new System.Drawing.Size(251, 24);
             this.extensionLabel.TabIndex = 1;
             this.extensionLabel.Text = "Extension: 0";
             this.extensionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -299,9 +305,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.elevationLabel.AutoSize = true;
             this.armControlLayoutPanel.SetColumnSpan(this.elevationLabel, 2);
-            this.elevationLabel.Location = new System.Drawing.Point(3, 168);
+            this.elevationLabel.Location = new System.Drawing.Point(3, 194);
             this.elevationLabel.Name = "elevationLabel";
-            this.elevationLabel.Size = new System.Drawing.Size(251, 21);
+            this.elevationLabel.Size = new System.Drawing.Size(251, 24);
             this.elevationLabel.TabIndex = 2;
             this.elevationLabel.Text = "Elevation: 0";
             this.elevationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -313,9 +319,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gripperLabel.AutoSize = true;
             this.armControlLayoutPanel.SetColumnSpan(this.gripperLabel, 2);
-            this.gripperLabel.Location = new System.Drawing.Point(3, 252);
+            this.gripperLabel.Location = new System.Drawing.Point(3, 291);
             this.gripperLabel.Name = "gripperLabel";
-            this.gripperLabel.Size = new System.Drawing.Size(251, 21);
+            this.gripperLabel.Size = new System.Drawing.Size(251, 24);
             this.gripperLabel.TabIndex = 3;
             this.gripperLabel.Text = "Gripper: 0";
             this.gripperLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -327,9 +333,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.auxLabel.AutoSize = true;
             this.armControlLayoutPanel.SetColumnSpan(this.auxLabel, 2);
-            this.auxLabel.Location = new System.Drawing.Point(3, 336);
+            this.auxLabel.Location = new System.Drawing.Point(3, 388);
             this.auxLabel.Name = "auxLabel";
-            this.auxLabel.Size = new System.Drawing.Size(251, 21);
+            this.auxLabel.Size = new System.Drawing.Size(251, 24);
             this.auxLabel.TabIndex = 4;
             this.auxLabel.Text = "Aux: 0";
             this.auxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -341,10 +347,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar1, 2);
             this.TrackBar1.LargeChange = 20;
-            this.TrackBar1.Location = new System.Drawing.Point(3, 24);
+            this.TrackBar1.Location = new System.Drawing.Point(3, 27);
             this.TrackBar1.Maximum = 180;
             this.TrackBar1.Name = "TrackBar1";
-            this.TrackBar1.Size = new System.Drawing.Size(251, 57);
+            this.TrackBar1.Size = new System.Drawing.Size(251, 67);
             this.TrackBar1.TabIndex = 5;
             this.TrackBar1.TickFrequency = 10;
             this.TrackBar1.Scroll += new System.EventHandler(this.rotationTrackBar_Scroll);
@@ -353,9 +359,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 420);
+            this.label2.Location = new System.Drawing.Point(3, 485);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 23);
+            this.label2.Size = new System.Drawing.Size(96, 28);
             this.label2.TabIndex = 11;
             this.label2.Text = "Refresh Rate:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -369,7 +375,7 @@
             this.framesGroupBox.Location = new System.Drawing.Point(3, 3);
             this.framesGroupBox.Name = "framesGroupBox";
             this.mainLayoutPanel.SetRowSpan(this.framesGroupBox, 3);
-            this.framesGroupBox.Size = new System.Drawing.Size(263, 462);
+            this.framesGroupBox.Size = new System.Drawing.Size(263, 532);
             this.framesGroupBox.TabIndex = 2;
             this.framesGroupBox.TabStop = false;
             this.framesGroupBox.Text = "Frames";
@@ -380,7 +386,7 @@
             this.framesListBox.FormattingEnabled = true;
             this.framesListBox.Location = new System.Drawing.Point(3, 16);
             this.framesListBox.Name = "framesListBox";
-            this.framesListBox.Size = new System.Drawing.Size(257, 443);
+            this.framesListBox.Size = new System.Drawing.Size(257, 513);
             this.framesListBox.TabIndex = 0;
             this.framesListBox.SelectedIndexChanged += new System.EventHandler(this.framesListBox_SelectedIndexChanged);
             // 
@@ -392,7 +398,7 @@
             this.connectionControlGroupBox.Controls.Add(this.connectionControlTableLayoutPanel);
             this.connectionControlGroupBox.Location = new System.Drawing.Point(541, 3);
             this.connectionControlGroupBox.Name = "connectionControlGroupBox";
-            this.connectionControlGroupBox.Size = new System.Drawing.Size(263, 110);
+            this.connectionControlGroupBox.Size = new System.Drawing.Size(263, 128);
             this.connectionControlGroupBox.TabIndex = 3;
             this.connectionControlGroupBox.TabStop = false;
             this.connectionControlGroupBox.Text = "Connection Control";
@@ -403,17 +409,56 @@
             this.connectionControlTableLayoutPanel.ColumnCount = 2;
             this.connectionControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.connectionControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.connectionControlTableLayoutPanel.Controls.Add(this.serialPortPickerLabel, 0, 1);
+            this.connectionControlTableLayoutPanel.Controls.Add(this.serialPortNumericUpDown, 1, 1);
             this.connectionControlTableLayoutPanel.Controls.Add(this.baudRateLabel, 0, 0);
             this.connectionControlTableLayoutPanel.Controls.Add(this.panel1, 1, 0);
-            this.connectionControlTableLayoutPanel.Controls.Add(this.connectButton, 0, 1);
+            this.connectionControlTableLayoutPanel.Controls.Add(this.connectButton, 0, 2);
             this.connectionControlTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.connectionControlTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
             this.connectionControlTableLayoutPanel.Name = "connectionControlTableLayoutPanel";
-            this.connectionControlTableLayoutPanel.RowCount = 2;
-            this.connectionControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.connectionControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.connectionControlTableLayoutPanel.Size = new System.Drawing.Size(257, 91);
+            this.connectionControlTableLayoutPanel.RowCount = 3;
+            this.connectionControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.connectionControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.connectionControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.connectionControlTableLayoutPanel.Size = new System.Drawing.Size(257, 109);
             this.connectionControlTableLayoutPanel.TabIndex = 0;
+            // 
+            // serialPortPickerLabel
+            // 
+            this.serialPortPickerLabel.AutoSize = true;
+            this.serialPortPickerLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serialPortPickerLabel.Location = new System.Drawing.Point(3, 36);
+            this.serialPortPickerLabel.Name = "serialPortPickerLabel";
+            this.serialPortPickerLabel.Size = new System.Drawing.Size(122, 36);
+            this.serialPortPickerLabel.TabIndex = 8;
+            this.serialPortPickerLabel.Text = "Serial Port #:";
+            this.serialPortPickerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // serialPortNumericUpDown
+            // 
+            this.serialPortNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serialPortNumericUpDown.Location = new System.Drawing.Point(131, 46);
+            this.serialPortNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.serialPortNumericUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.serialPortNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.serialPortNumericUpDown.Name = "serialPortNumericUpDown";
+            this.serialPortNumericUpDown.Size = new System.Drawing.Size(123, 20);
+            this.serialPortNumericUpDown.TabIndex = 7;
+            this.serialPortNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.serialPortNumericUpDown.ValueChanged += new System.EventHandler(this.serialPortNumericUpDown_ValueChanged);
             // 
             // baudRateLabel
             // 
@@ -421,7 +466,7 @@
             this.baudRateLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.baudRateLabel.Location = new System.Drawing.Point(3, 0);
             this.baudRateLabel.Name = "baudRateLabel";
-            this.baudRateLabel.Size = new System.Drawing.Size(122, 45);
+            this.baudRateLabel.Size = new System.Drawing.Size(122, 36);
             this.baudRateLabel.TabIndex = 1;
             this.baudRateLabel.Text = "Baud Rate:";
             this.baudRateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -433,7 +478,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(131, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(123, 39);
+            this.panel1.Size = new System.Drawing.Size(123, 30);
             this.panel1.TabIndex = 2;
             // 
             // baudRateTextBox
@@ -452,10 +497,10 @@
             // 
             this.connectionControlTableLayoutPanel.SetColumnSpan(this.connectButton, 2);
             this.connectButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.connectButton.Location = new System.Drawing.Point(15, 53);
+            this.connectButton.Location = new System.Drawing.Point(15, 80);
             this.connectButton.Margin = new System.Windows.Forms.Padding(15, 8, 15, 8);
             this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(227, 30);
+            this.connectButton.Size = new System.Drawing.Size(227, 21);
             this.connectButton.TabIndex = 3;
             this.connectButton.Text = "Connect";
             this.connectButton.UseVisualStyleBackColor = true;
@@ -467,9 +512,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.frameControlGroupBox.Controls.Add(this.FrameControlTableLayoutPanel);
-            this.frameControlGroupBox.Location = new System.Drawing.Point(541, 119);
+            this.frameControlGroupBox.Location = new System.Drawing.Point(541, 137);
             this.frameControlGroupBox.Name = "frameControlGroupBox";
-            this.frameControlGroupBox.Size = new System.Drawing.Size(263, 189);
+            this.frameControlGroupBox.Size = new System.Drawing.Size(263, 219);
             this.frameControlGroupBox.TabIndex = 4;
             this.frameControlGroupBox.TabStop = false;
             this.frameControlGroupBox.Text = "Frame Control";
@@ -479,29 +524,33 @@
             this.FrameControlTableLayoutPanel.ColumnCount = 2;
             this.FrameControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.FrameControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.FrameControlTableLayoutPanel.Controls.Add(this.loop, 0, 4);
             this.FrameControlTableLayoutPanel.Controls.Add(this.deleteButton, 0, 2);
             this.FrameControlTableLayoutPanel.Controls.Add(this.overwriteButton, 0, 1);
             this.FrameControlTableLayoutPanel.Controls.Add(this.newFrameButton, 0, 0);
             this.FrameControlTableLayoutPanel.Controls.Add(this.framDurationLabel, 0, 3);
             this.FrameControlTableLayoutPanel.Controls.Add(this.durrationNumericUpDown, 1, 3);
+            this.FrameControlTableLayoutPanel.Controls.Add(this.loopCheckBox, 1, 4);
+            this.FrameControlTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FrameControlTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
             this.FrameControlTableLayoutPanel.Name = "FrameControlTableLayoutPanel";
-            this.FrameControlTableLayoutPanel.RowCount = 4;
-            this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.FrameControlTableLayoutPanel.Size = new System.Drawing.Size(258, 155);
+            this.FrameControlTableLayoutPanel.RowCount = 5;
+            this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.FrameControlTableLayoutPanel.Size = new System.Drawing.Size(257, 200);
             this.FrameControlTableLayoutPanel.TabIndex = 0;
             // 
             // deleteButton
             // 
             this.FrameControlTableLayoutPanel.SetColumnSpan(this.deleteButton, 2);
             this.deleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deleteButton.Location = new System.Drawing.Point(7, 83);
+            this.deleteButton.Location = new System.Drawing.Point(7, 87);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(7);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(244, 24);
+            this.deleteButton.Size = new System.Drawing.Size(243, 26);
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Delete Selected Frame";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -511,10 +560,10 @@
             // 
             this.FrameControlTableLayoutPanel.SetColumnSpan(this.overwriteButton, 2);
             this.overwriteButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.overwriteButton.Location = new System.Drawing.Point(7, 45);
+            this.overwriteButton.Location = new System.Drawing.Point(7, 47);
             this.overwriteButton.Margin = new System.Windows.Forms.Padding(7);
             this.overwriteButton.Name = "overwriteButton";
-            this.overwriteButton.Size = new System.Drawing.Size(244, 24);
+            this.overwriteButton.Size = new System.Drawing.Size(243, 26);
             this.overwriteButton.TabIndex = 1;
             this.overwriteButton.Text = "Overwrite Current Frame";
             this.overwriteButton.UseVisualStyleBackColor = true;
@@ -527,7 +576,7 @@
             this.newFrameButton.Location = new System.Drawing.Point(7, 7);
             this.newFrameButton.Margin = new System.Windows.Forms.Padding(7);
             this.newFrameButton.Name = "newFrameButton";
-            this.newFrameButton.Size = new System.Drawing.Size(244, 24);
+            this.newFrameButton.Size = new System.Drawing.Size(243, 26);
             this.newFrameButton.TabIndex = 0;
             this.newFrameButton.Text = "Save as New Frame";
             this.newFrameButton.UseVisualStyleBackColor = true;
@@ -537,9 +586,9 @@
             // 
             this.framDurationLabel.AutoSize = true;
             this.framDurationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.framDurationLabel.Location = new System.Drawing.Point(3, 114);
+            this.framDurationLabel.Location = new System.Drawing.Point(3, 120);
             this.framDurationLabel.Name = "framDurationLabel";
-            this.framDurationLabel.Size = new System.Drawing.Size(84, 41);
+            this.framDurationLabel.Size = new System.Drawing.Size(83, 40);
             this.framDurationLabel.TabIndex = 3;
             this.framDurationLabel.Text = "Frame Duration (ms):";
             this.framDurationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -552,7 +601,7 @@
             0,
             0,
             0});
-            this.durrationNumericUpDown.Location = new System.Drawing.Point(93, 124);
+            this.durrationNumericUpDown.Location = new System.Drawing.Point(92, 130);
             this.durrationNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.durrationNumericUpDown.Maximum = new decimal(new int[] {
             10000,
@@ -574,9 +623,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.playbackGroupBox.Controls.Add(this.PlaybackControlTableLayoutPanel);
-            this.playbackGroupBox.Location = new System.Drawing.Point(541, 314);
+            this.playbackGroupBox.Location = new System.Drawing.Point(541, 362);
             this.playbackGroupBox.Name = "playbackGroupBox";
-            this.playbackGroupBox.Size = new System.Drawing.Size(263, 151);
+            this.playbackGroupBox.Size = new System.Drawing.Size(263, 173);
             this.playbackGroupBox.TabIndex = 5;
             this.playbackGroupBox.TabStop = false;
             this.playbackGroupBox.Text = "Playback Control";
@@ -595,30 +644,32 @@
             this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.PlaybackControlTableLayoutPanel.Size = new System.Drawing.Size(257, 132);
+            this.PlaybackControlTableLayoutPanel.Size = new System.Drawing.Size(257, 154);
             this.PlaybackControlTableLayoutPanel.TabIndex = 1;
             // 
             // stopButton
             // 
             this.stopButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stopButton.Location = new System.Drawing.Point(7, 95);
+            this.stopButton.Location = new System.Drawing.Point(7, 109);
             this.stopButton.Margin = new System.Windows.Forms.Padding(7);
             this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(243, 30);
+            this.stopButton.Size = new System.Drawing.Size(243, 38);
             this.stopButton.TabIndex = 2;
             this.stopButton.Text = "Stop Playback";
             this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // playFromSelectedButton
             // 
             this.playFromSelectedButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playFromSelectedButton.Location = new System.Drawing.Point(7, 51);
+            this.playFromSelectedButton.Location = new System.Drawing.Point(7, 58);
             this.playFromSelectedButton.Margin = new System.Windows.Forms.Padding(7);
             this.playFromSelectedButton.Name = "playFromSelectedButton";
-            this.playFromSelectedButton.Size = new System.Drawing.Size(243, 30);
+            this.playFromSelectedButton.Size = new System.Drawing.Size(243, 37);
             this.playFromSelectedButton.TabIndex = 1;
             this.playFromSelectedButton.Text = "Play from Selected Frame";
             this.playFromSelectedButton.UseVisualStyleBackColor = true;
+            this.playFromSelectedButton.Click += new System.EventHandler(this.playFromSelectedButton_Click);
             // 
             // playFromTopButton
             // 
@@ -626,10 +677,11 @@
             this.playFromTopButton.Location = new System.Drawing.Point(7, 7);
             this.playFromTopButton.Margin = new System.Windows.Forms.Padding(7);
             this.playFromTopButton.Name = "playFromTopButton";
-            this.playFromTopButton.Size = new System.Drawing.Size(243, 30);
+            this.playFromTopButton.Size = new System.Drawing.Size(243, 37);
             this.playFromTopButton.TabIndex = 0;
             this.playFromTopButton.Text = "Play from Top";
             this.playFromTopButton.UseVisualStyleBackColor = true;
+            this.playFromTopButton.Click += new System.EventHandler(this.playFromTopButton_Click);
             // 
             // menuStrip
             // 
@@ -667,7 +719,7 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectionStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 490);
+            this.statusStrip.Location = new System.Drawing.Point(0, 560);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(807, 22);
             this.statusStrip.TabIndex = 4;
@@ -694,11 +746,39 @@
             this.saveFileDialog.Title = "Save frames...";
             this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
+            // playbackTimer
+            // 
+            this.playbackTimer.Tick += new System.EventHandler(this.playbackTimer_Tick);
+            // 
+            // loop
+            // 
+            this.loop.AutoSize = true;
+            this.loop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loop.Location = new System.Drawing.Point(3, 160);
+            this.loop.Name = "loop";
+            this.loop.Size = new System.Drawing.Size(83, 40);
+            this.loop.TabIndex = 5;
+            this.loop.Text = "Loop:";
+            this.loop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // loopCheckBox
+            // 
+            this.loopCheckBox.AutoSize = true;
+            this.loopCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.loopCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loopCheckBox.Location = new System.Drawing.Point(92, 163);
+            this.loopCheckBox.Name = "loopCheckBox";
+            this.loopCheckBox.Size = new System.Drawing.Size(162, 34);
+            this.loopCheckBox.TabIndex = 6;
+            this.loopCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.loopCheckBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.loopCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 512);
+            this.ClientSize = new System.Drawing.Size(807, 582);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.mainLayoutPanel);
             this.Controls.Add(this.menuStrip);
@@ -722,6 +802,7 @@
             this.connectionControlGroupBox.PerformLayout();
             this.connectionControlTableLayoutPanel.ResumeLayout(false);
             this.connectionControlTableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.serialPortNumericUpDown)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.frameControlGroupBox.ResumeLayout(false);
@@ -767,7 +848,6 @@
         private System.Windows.Forms.Label baudRateLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox baudRateTextBox;
-        private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel connectionStatusLabel;
         private System.Windows.Forms.TableLayoutPanel FrameControlTableLayoutPanel;
@@ -785,6 +865,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown durrationNumericUpDown;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Label serialPortPickerLabel;
+        private System.Windows.Forms.NumericUpDown serialPortNumericUpDown;
+        private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.Timer playbackTimer;
+        private System.Windows.Forms.Label loop;
+        private System.Windows.Forms.CheckBox loopCheckBox;
     }
 }
 
