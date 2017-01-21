@@ -77,9 +77,9 @@
             this.serialTimer = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.playbackTimer = new System.Windows.Forms.Timer(this.components);
-            this.loop = new System.Windows.Forms.Label();
-            this.loopCheckBox = new System.Windows.Forms.CheckBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.loopCheckBox = new System.Windows.Forms.CheckBox();
             this.mainLayoutPanel.SuspendLayout();
             this.armControlGroupBox.SuspendLayout();
             this.armControlLayoutPanel.SuspendLayout();
@@ -113,8 +113,8 @@
             this.mainLayoutPanel.Controls.Add(this.armControlGroupBox, 1, 0);
             this.mainLayoutPanel.Controls.Add(this.framesGroupBox, 0, 0);
             this.mainLayoutPanel.Controls.Add(this.connectionControlGroupBox, 2, 0);
-            this.mainLayoutPanel.Controls.Add(this.frameControlGroupBox, 2, 1);
             this.mainLayoutPanel.Controls.Add(this.playbackGroupBox, 2, 2);
+            this.mainLayoutPanel.Controls.Add(this.frameControlGroupBox, 2, 1);
             this.mainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainLayoutPanel.Location = new System.Drawing.Point(0, 24);
             this.mainLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
@@ -525,18 +525,15 @@
             this.FrameControlTableLayoutPanel.ColumnCount = 2;
             this.FrameControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.FrameControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.FrameControlTableLayoutPanel.Controls.Add(this.loop, 0, 4);
             this.FrameControlTableLayoutPanel.Controls.Add(this.deleteButton, 0, 2);
             this.FrameControlTableLayoutPanel.Controls.Add(this.overwriteButton, 0, 1);
             this.FrameControlTableLayoutPanel.Controls.Add(this.newFrameButton, 0, 0);
             this.FrameControlTableLayoutPanel.Controls.Add(this.framDurationLabel, 0, 3);
             this.FrameControlTableLayoutPanel.Controls.Add(this.durrationNumericUpDown, 1, 3);
-            this.FrameControlTableLayoutPanel.Controls.Add(this.loopCheckBox, 1, 4);
             this.FrameControlTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FrameControlTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
             this.FrameControlTableLayoutPanel.Name = "FrameControlTableLayoutPanel";
-            this.FrameControlTableLayoutPanel.RowCount = 5;
-            this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.FrameControlTableLayoutPanel.RowCount = 4;
             this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.FrameControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -548,10 +545,10 @@
             // 
             this.FrameControlTableLayoutPanel.SetColumnSpan(this.deleteButton, 2);
             this.deleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deleteButton.Location = new System.Drawing.Point(7, 87);
+            this.deleteButton.Location = new System.Drawing.Point(7, 107);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(7);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(243, 26);
+            this.deleteButton.Size = new System.Drawing.Size(243, 36);
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Delete Current Frame";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -561,10 +558,10 @@
             // 
             this.FrameControlTableLayoutPanel.SetColumnSpan(this.overwriteButton, 2);
             this.overwriteButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.overwriteButton.Location = new System.Drawing.Point(7, 47);
+            this.overwriteButton.Location = new System.Drawing.Point(7, 57);
             this.overwriteButton.Margin = new System.Windows.Forms.Padding(7);
             this.overwriteButton.Name = "overwriteButton";
-            this.overwriteButton.Size = new System.Drawing.Size(243, 26);
+            this.overwriteButton.Size = new System.Drawing.Size(243, 36);
             this.overwriteButton.TabIndex = 1;
             this.overwriteButton.Text = "Overwrite Current Frame";
             this.overwriteButton.UseVisualStyleBackColor = true;
@@ -577,7 +574,7 @@
             this.newFrameButton.Location = new System.Drawing.Point(7, 7);
             this.newFrameButton.Margin = new System.Windows.Forms.Padding(7);
             this.newFrameButton.Name = "newFrameButton";
-            this.newFrameButton.Size = new System.Drawing.Size(243, 26);
+            this.newFrameButton.Size = new System.Drawing.Size(243, 36);
             this.newFrameButton.TabIndex = 0;
             this.newFrameButton.Text = "Insert New Frame After Current Frame";
             this.newFrameButton.UseVisualStyleBackColor = true;
@@ -587,9 +584,9 @@
             // 
             this.framDurationLabel.AutoSize = true;
             this.framDurationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.framDurationLabel.Location = new System.Drawing.Point(3, 120);
+            this.framDurationLabel.Location = new System.Drawing.Point(3, 150);
             this.framDurationLabel.Name = "framDurationLabel";
-            this.framDurationLabel.Size = new System.Drawing.Size(83, 40);
+            this.framDurationLabel.Size = new System.Drawing.Size(83, 50);
             this.framDurationLabel.TabIndex = 3;
             this.framDurationLabel.Text = "Frame Duration (ms):";
             this.framDurationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -602,7 +599,7 @@
             0,
             0,
             0});
-            this.durrationNumericUpDown.Location = new System.Drawing.Point(92, 130);
+            this.durrationNumericUpDown.Location = new System.Drawing.Point(92, 160);
             this.durrationNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.durrationNumericUpDown.Maximum = new decimal(new int[] {
             10000,
@@ -633,28 +630,34 @@
             // 
             // PlaybackControlTableLayoutPanel
             // 
-            this.PlaybackControlTableLayoutPanel.ColumnCount = 1;
-            this.PlaybackControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PlaybackControlTableLayoutPanel.ColumnCount = 2;
+            this.PlaybackControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PlaybackControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PlaybackControlTableLayoutPanel.Controls.Add(this.loopCheckBox, 1, 3);
+            this.PlaybackControlTableLayoutPanel.Controls.Add(this.label1, 0, 3);
             this.PlaybackControlTableLayoutPanel.Controls.Add(this.stopButton, 0, 2);
             this.PlaybackControlTableLayoutPanel.Controls.Add(this.playFromSelectedButton, 0, 1);
             this.PlaybackControlTableLayoutPanel.Controls.Add(this.playFromTopButton, 0, 0);
             this.PlaybackControlTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlaybackControlTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
             this.PlaybackControlTableLayoutPanel.Name = "PlaybackControlTableLayoutPanel";
-            this.PlaybackControlTableLayoutPanel.RowCount = 3;
-            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.PlaybackControlTableLayoutPanel.RowCount = 4;
+            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.PlaybackControlTableLayoutPanel.Size = new System.Drawing.Size(257, 154);
             this.PlaybackControlTableLayoutPanel.TabIndex = 1;
+            this.PlaybackControlTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PlaybackControlTableLayoutPanel_Paint);
             // 
             // stopButton
             // 
+            this.PlaybackControlTableLayoutPanel.SetColumnSpan(this.stopButton, 2);
             this.stopButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stopButton.Location = new System.Drawing.Point(7, 109);
+            this.stopButton.Location = new System.Drawing.Point(7, 83);
             this.stopButton.Margin = new System.Windows.Forms.Padding(7);
             this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(243, 38);
+            this.stopButton.Size = new System.Drawing.Size(243, 24);
             this.stopButton.TabIndex = 2;
             this.stopButton.Text = "Stop Playback";
             this.stopButton.UseVisualStyleBackColor = true;
@@ -662,11 +665,12 @@
             // 
             // playFromSelectedButton
             // 
+            this.PlaybackControlTableLayoutPanel.SetColumnSpan(this.playFromSelectedButton, 2);
             this.playFromSelectedButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playFromSelectedButton.Location = new System.Drawing.Point(7, 58);
+            this.playFromSelectedButton.Location = new System.Drawing.Point(7, 45);
             this.playFromSelectedButton.Margin = new System.Windows.Forms.Padding(7);
             this.playFromSelectedButton.Name = "playFromSelectedButton";
-            this.playFromSelectedButton.Size = new System.Drawing.Size(243, 37);
+            this.playFromSelectedButton.Size = new System.Drawing.Size(243, 24);
             this.playFromSelectedButton.TabIndex = 1;
             this.playFromSelectedButton.Text = "Play from Selected Frame";
             this.playFromSelectedButton.UseVisualStyleBackColor = true;
@@ -674,11 +678,12 @@
             // 
             // playFromTopButton
             // 
+            this.PlaybackControlTableLayoutPanel.SetColumnSpan(this.playFromTopButton, 2);
             this.playFromTopButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playFromTopButton.Location = new System.Drawing.Point(7, 7);
             this.playFromTopButton.Margin = new System.Windows.Forms.Padding(7);
             this.playFromTopButton.Name = "playFromTopButton";
-            this.playFromTopButton.Size = new System.Drawing.Size(243, 37);
+            this.playFromTopButton.Size = new System.Drawing.Size(243, 24);
             this.playFromTopButton.TabIndex = 0;
             this.playFromTopButton.Text = "Play from Top";
             this.playFromTopButton.UseVisualStyleBackColor = true;
@@ -752,35 +757,34 @@
             // 
             this.playbackTimer.Tick += new System.EventHandler(this.playbackTimer_Tick);
             // 
-            // loop
+            // openFileDialog1
             // 
-            this.loop.AutoSize = true;
-            this.loop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loop.Location = new System.Drawing.Point(3, 160);
-            this.loop.Name = "loop";
-            this.loop.Size = new System.Drawing.Size(83, 40);
-            this.loop.TabIndex = 5;
-            this.loop.Text = "Loop:";
-            this.loop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.openFileDialog1.Filter = "Robot Files|*.rbt";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 40);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Loop:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // loopCheckBox
             // 
             this.loopCheckBox.AutoSize = true;
-            this.loopCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.loopCheckBox.Checked = true;
             this.loopCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.loopCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loopCheckBox.Location = new System.Drawing.Point(92, 163);
+            this.loopCheckBox.Location = new System.Drawing.Point(131, 117);
             this.loopCheckBox.Name = "loopCheckBox";
-            this.loopCheckBox.Size = new System.Drawing.Size(162, 34);
-            this.loopCheckBox.TabIndex = 6;
+            this.loopCheckBox.Size = new System.Drawing.Size(123, 34);
+            this.loopCheckBox.TabIndex = 7;
             this.loopCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.loopCheckBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.loopCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.Filter = "Robot Files|*.rbt";
             // 
             // Form1
             // 
@@ -820,6 +824,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.durrationNumericUpDown)).EndInit();
             this.playbackGroupBox.ResumeLayout(false);
             this.PlaybackControlTableLayoutPanel.ResumeLayout(false);
+            this.PlaybackControlTableLayoutPanel.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
@@ -878,9 +883,9 @@
         private System.Windows.Forms.NumericUpDown serialPortNumericUpDown;
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.Timer playbackTimer;
-        private System.Windows.Forms.Label loop;
-        private System.Windows.Forms.CheckBox loopCheckBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox loopCheckBox;
     }
 }
 

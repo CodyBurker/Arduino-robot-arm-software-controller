@@ -428,6 +428,16 @@ namespace WindowsFormsApplication8
             }
 
         }
+
+        private void PlaybackControlTableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void loopCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 
