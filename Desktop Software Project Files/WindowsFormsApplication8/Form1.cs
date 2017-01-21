@@ -401,8 +401,18 @@ namespace WindowsFormsApplication8
             openFileDialog1.ShowDialog();
             String filePath = openFileDialog1.FileName;
             string[] lines = System.IO.File.ReadAllLines(filePath);
+            framesList.Clear();
+            framesListBox.Items.Clear();
             for (int i = 0; i < lines.Count(); i++)
             {
+                servo1 = int.Parse(lines[i].Substring(0, 3));
+                servo2 = int.Parse(lines[i].Substring(3, 3));
+                servo3 = int.Parse(lines[i].Substring(6, 3));
+                servo4 = int.Parse(lines[i].Substring(9, 3));
+                servo5 = int.Parse(lines[i].Substring(12, 3));
+                durrationNumericUpDown.Value = int.Parse(lines[i].Substring(15));
+                framesList.Add(new int[] { servo1, servo2, servo3, servo4, servo5, (int) durrationNumericUpDown.Value });
+                framesListBox.Items.Add(listToString());
 
             }
 
