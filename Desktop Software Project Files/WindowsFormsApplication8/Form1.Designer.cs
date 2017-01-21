@@ -79,6 +79,7 @@
             this.playbackTimer = new System.Windows.Forms.Timer(this.components);
             this.loop = new System.Windows.Forms.Label();
             this.loopCheckBox = new System.Windows.Forms.CheckBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.mainLayoutPanel.SuspendLayout();
             this.armControlGroupBox.SuspendLayout();
             this.armControlLayoutPanel.SuspendLayout();
@@ -705,13 +706,14 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Open";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem1
             // 
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem1.Text = "Save";
             this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
@@ -873,6 +875,7 @@
         private System.Windows.Forms.Timer playbackTimer;
         private System.Windows.Forms.Label loop;
         private System.Windows.Forms.CheckBox loopCheckBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

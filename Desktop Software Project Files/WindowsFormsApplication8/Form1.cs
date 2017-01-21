@@ -194,15 +194,15 @@ namespace WindowsFormsApplication8
         List<int[]> framesList = new List<int[]>();
         private void newFrameButton_Click(object sender, EventArgs e) //Add frame
         {
-            if (framesListBox.SelectedIndex > 0)
+            if (framesListBox.SelectedIndices.Count > 0) //If user has selected something then add after it
             {
                 int duration = (int)durrationNumericUpDown.Value;
-                framesList.Insert(framesListBox.SelectedIndex, new int[] { servo1, servo2, servo3, servo4, servo5, duration });
+                framesList.Insert(framesListBox.SelectedIndex + 1, new int[] { servo1, servo2, servo3, servo4, servo5, duration });
                 String add = listToString();
-                framesListBox.Items.Insert(framesListBox.SelectedIndex, add);
-                framesListBox.SelectedIndex = framesList.Count() - 1;
+                framesListBox.Items.Insert(framesListBox.SelectedIndex+1, add);
+                framesListBox.SelectedIndex = framesListBox.SelectedIndex + 1;
             }
-            else
+            else //Otherwise add to bottom
             {
                 int duration = (int)durrationNumericUpDown.Value;
                 framesList.Add(new int[] { servo1, servo2, servo3, servo4, servo5, duration });
@@ -266,6 +266,10 @@ namespace WindowsFormsApplication8
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            if(framesListBox.SelectedIndices.Count == 0)
+            {
+                return;
+            }
             int selected = framesListBox.SelectedIndex;
             framesList.RemoveAt(selected);
             framesListBox.Items.RemoveAt(selected);
@@ -276,8 +280,19 @@ namespace WindowsFormsApplication8
         {
             saveFileDialog.ShowDialog();
             String fileAddress = saveFileDialog.FileName;
+            //Get file to save to via dialog
             TextWriter file = new StreamWriter(fileAddress);
-            file.WriteLine("Testing..");
+            //Save each frame individually, similiar how to you would send to arduiono
+            for(int i = 0; i < framesList.Count;i++)
+            {
+                String s1 = String.Format("{0:D3}", framesList[i][0]);
+                String s2 = String.Format("{0:D3}", framesList[i][1]);
+                String s3 = String.Format("{0:D3}", framesList[i][2]);
+                String s4 = String.Format("{0:D3}", framesList[i][3]);
+                String s5 = String.Format("{0:D3}", framesList[i][4]);
+                String d = String.Format("{0:D4}", framesList[i][5]);
+                file.WriteLine(s1 + s2 + s3 + s4 + s5 + d);
+            }
             file.Close();
         }
 
@@ -299,6 +314,10 @@ namespace WindowsFormsApplication8
         bool playing = false;
         private void isPlaying(bool onOff) //method to start or stop playback
         {
+            if (!(framesList.Count > 0))
+            {
+                return;
+            }
             playing = onOff;
             playbackTimer.Enabled = onOff;
             if (playbackTimer.Enabled)
@@ -332,6 +351,7 @@ namespace WindowsFormsApplication8
         int currentFrame = 0; //Keep track of the current frame
         private void playbackTimer_Tick(object sender, EventArgs e)
         {
+            
             //Select listBox for current frame
             framesListBox.Select();
             framesListBox.SelectedIndex = currentFrame;
@@ -373,6 +393,18 @@ namespace WindowsFormsApplication8
                 
             }
             
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+            String filePath = openFileDialog1.FileName;
+            string[] lines = System.IO.File.ReadAllLines(filePath);
+            for (int i = 0; i < lines.Count(); i++)
+            {
+
+            }
 
         }
     }
