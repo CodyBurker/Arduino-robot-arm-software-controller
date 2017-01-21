@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Arduino Robot Arm Controller.exe" size="774576">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Arduino Robot Arm Controller.exe" size="775088">
       <assemblyIdentity name="Arduino Robot Arm Controller" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wkDEqqH2Jn4zfjtX2AsPKLWiSCU8KGcr0bRrOdX0JII=</dsig:DigestValue>
+        <dsig:DigestValue>c2E9tstYdiGwyb2eTywb0hvdqUOxnL51YpwUnRSc6mE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

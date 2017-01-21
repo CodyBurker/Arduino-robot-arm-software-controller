@@ -770,6 +770,7 @@
             // 
             // connectionStatusLabel
             // 
+            this.connectionStatusLabel.BackColor = System.Drawing.Color.Red;
             this.connectionStatusLabel.Name = "connectionStatusLabel";
             this.connectionStatusLabel.Size = new System.Drawing.Size(79, 17);
             this.connectionStatusLabel.Text = "Disconnected";

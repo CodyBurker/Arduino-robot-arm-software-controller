@@ -141,7 +141,7 @@ namespace WindowsFormsApplication8
                 arduinoSerialPort.Open();
                 //Set status text at bottom of form
                 connectionStatusLabel.Text = "Connected on Port: " + portName;
-                
+                connectionStatusLabel.BackColor = Color.Green;
                 //Set button text
                 connectButton.Text = "Disconnect";
                 //Send the message to the arduino
@@ -173,6 +173,7 @@ namespace WindowsFormsApplication8
             
             connectButton.Text = "Connect";
             connectionStatusLabel.Text = "Dissconnected";
+            connectionStatusLabel.BackColor = Color.Red;
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -445,6 +446,10 @@ namespace WindowsFormsApplication8
         private void loopCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+        private void trackBar1_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello");
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
