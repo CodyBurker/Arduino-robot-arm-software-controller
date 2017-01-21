@@ -276,6 +276,24 @@ namespace WindowsFormsApplication8
             framesList.RemoveAt(selected);
             framesListBox.Items.RemoveAt(selected);
             framesListBox.ClearSelected();
+            try
+            {
+                framesListBox.SelectedIndex = selected;
+            }
+            catch
+            {
+                try
+                {
+                    framesListBox.SelectedIndex = selected - 1;
+                }
+                catch
+                {
+
+                }
+                
+            }
+            
+            
         }
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)

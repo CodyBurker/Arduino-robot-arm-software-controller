@@ -290,7 +290,7 @@
             this.rotationLabel.Name = "rotationLabel";
             this.rotationLabel.Size = new System.Drawing.Size(251, 24);
             this.rotationLabel.TabIndex = 0;
-            this.rotationLabel.Text = "Rotation: 0";
+            this.rotationLabel.Text = "Rotation:";
             this.rotationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rotationLabel.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -305,7 +305,7 @@
             this.extensionLabel.Name = "extensionLabel";
             this.extensionLabel.Size = new System.Drawing.Size(251, 24);
             this.extensionLabel.TabIndex = 1;
-            this.extensionLabel.Text = "Extension: 0";
+            this.extensionLabel.Text = "Extension:";
             this.extensionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // elevationLabel
@@ -319,7 +319,7 @@
             this.elevationLabel.Name = "elevationLabel";
             this.elevationLabel.Size = new System.Drawing.Size(251, 24);
             this.elevationLabel.TabIndex = 2;
-            this.elevationLabel.Text = "Elevation: 0";
+            this.elevationLabel.Text = "Elevation:";
             this.elevationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gripperLabel
@@ -333,7 +333,7 @@
             this.gripperLabel.Name = "gripperLabel";
             this.gripperLabel.Size = new System.Drawing.Size(251, 24);
             this.gripperLabel.TabIndex = 3;
-            this.gripperLabel.Text = "Gripper: 0";
+            this.gripperLabel.Text = "Gripper:";
             this.gripperLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // auxLabel
@@ -347,7 +347,7 @@
             this.auxLabel.Name = "auxLabel";
             this.auxLabel.Size = new System.Drawing.Size(251, 24);
             this.auxLabel.TabIndex = 4;
-            this.auxLabel.Text = "Aux: 0";
+            this.auxLabel.Text = "Aux:";
             this.auxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TrackBar1
