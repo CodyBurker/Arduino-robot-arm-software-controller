@@ -612,7 +612,7 @@
             this.durrationNumericUpDown.Size = new System.Drawing.Size(162, 20);
             this.durrationNumericUpDown.TabIndex = 4;
             this.durrationNumericUpDown.Value = new decimal(new int[] {
-            500,
+            1000,
             0,
             0,
             0});
@@ -765,6 +765,8 @@
             // 
             this.loopCheckBox.AutoSize = true;
             this.loopCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.loopCheckBox.Checked = true;
+            this.loopCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.loopCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.loopCheckBox.Location = new System.Drawing.Point(92, 163);
             this.loopCheckBox.Name = "loopCheckBox";

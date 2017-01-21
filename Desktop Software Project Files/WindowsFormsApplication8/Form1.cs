@@ -158,7 +158,9 @@ namespace WindowsFormsApplication8
                 disconnect();
                 //Disable timer
                 serialTimer.Enabled = false;
-                MessageBox.Show("Unable to connect to arduino. Check that it is plugged in and driver is installed.","Connection Errror");
+                MessageBox.Show("Unable to connect to arduino.","Connection Errror");
+                //Ensure playback is stopped.
+                isPlaying(false);
 
             }
             
@@ -299,6 +301,10 @@ namespace WindowsFormsApplication8
         {
             playing = onOff;
             playbackTimer.Enabled = onOff;
+            if (playbackTimer.Enabled)
+            {
+                playbackTimer.Interval = 1;
+            }
             //Disable all controls while playing back
             onOff = !onOff;
             TrackBar1.Enabled = onOff;
@@ -345,11 +351,12 @@ namespace WindowsFormsApplication8
             TrackBar5.Value = currentFrameArray[4];
             //Send via serial
             sendSerial();
+            //Change interval
+            playbackTimer.Interval = currentFrameArray[5];
             //Check for last frame
-            if(framesList.Count > currentFrame + 1)
+            if (framesList.Count > currentFrame + 1)
             {
-                //If not, change interval and incrmeent frame
-                playbackTimer.Interval = currentFrameArray[5];
+                //If not, incrmeent frame
                 currentFrame++;
             }
             else
