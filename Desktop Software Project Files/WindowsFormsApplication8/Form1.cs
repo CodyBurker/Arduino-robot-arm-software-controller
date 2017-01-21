@@ -18,6 +18,7 @@ namespace WindowsFormsApplication8
         public Form1()
         {
             InitializeComponent();
+
             
 
         }
@@ -43,11 +44,11 @@ namespace WindowsFormsApplication8
         }
 
         //Declare variables for servos
-        int servo1 = 0;
-        int servo2 = 0;
-        int servo3 = 0;
-        int servo4 = 0;
-        int servo5 = 0;
+        int servo1 = 90;
+        int servo2 = 90;
+        int servo3 = 90;
+        int servo4 = 90;
+        int servo5 = 90;
         private void rotationTrackBar_Scroll(object sender, EventArgs e)//On Rotation Track Bar Update
         {
             servo1 = TrackBar1.Value;
@@ -278,22 +279,29 @@ namespace WindowsFormsApplication8
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            saveFileDialog.ShowDialog();
-            String fileAddress = saveFileDialog.FileName;
-            //Get file to save to via dialog
-            TextWriter file = new StreamWriter(fileAddress);
-            //Save each frame individually, similiar how to you would send to arduiono
-            for(int i = 0; i < framesList.Count;i++)
+            try
             {
-                String s1 = String.Format("{0:D3}", framesList[i][0]);
-                String s2 = String.Format("{0:D3}", framesList[i][1]);
-                String s3 = String.Format("{0:D3}", framesList[i][2]);
-                String s4 = String.Format("{0:D3}", framesList[i][3]);
-                String s5 = String.Format("{0:D3}", framesList[i][4]);
-                String d = String.Format("{0:D4}", framesList[i][5]);
-                file.WriteLine(s1 + s2 + s3 + s4 + s5 + d);
+                saveFileDialog.ShowDialog();
+                String fileAddress = saveFileDialog.FileName;
+                //Get file to save to via dialog
+                TextWriter file = new StreamWriter(fileAddress);
+                //Save each frame individually, similiar how to you would send to arduiono
+                for (int i = 0; i < framesList.Count; i++)
+                {
+                    String s1 = String.Format("{0:D3}", framesList[i][0]);
+                    String s2 = String.Format("{0:D3}", framesList[i][1]);
+                    String s3 = String.Format("{0:D3}", framesList[i][2]);
+                    String s4 = String.Format("{0:D3}", framesList[i][3]);
+                    String s5 = String.Format("{0:D3}", framesList[i][4]);
+                    String d = String.Format("{0:D4}", framesList[i][5]);
+                    file.WriteLine(s1 + s2 + s3 + s4 + s5 + d);
+                }
+                file.Close();
             }
-            file.Close();
+            catch
+            {
+                MessageBox.Show("Unable to save file");
+            }
         }
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -437,6 +445,70 @@ namespace WindowsFormsApplication8
         private void loopCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Export file
+                exportFileDialog.ShowDialog();
+                String file = exportFileDialog.FileName;
+                TextWriter exportFile = new StreamWriter(file);
+                exportFile.Write("#include <Servo.h>\n"); //First line
+                //Variable text
+                exportFile.Write("int frames [");
+                exportFile.Write(framesList.Count);
+                exportFile.Write("] [6] = {\n");
+                for (int i = 0; i < framesList.Count; i++)
+                {
+                    exportFile.Write("{");
+                    for (int j = 0; j < 5; j++)
+                    {
+                        exportFile.Write(framesList[i][j]);
+                        exportFile.Write(",");
+                    }
+                    exportFile.Write(framesList[i][5]);
+                    exportFile.Write("},\n");
+                }
+                exportFile.Write("};\n");
+                exportFile.WriteLine("const int size =" + framesList.Count + ";");
+                exportFile.WriteLine("int current;");
+                exportFile.WriteLine("Servo servo1;");
+                exportFile.WriteLine("Servo servo2;");
+                exportFile.WriteLine("Servo servo3;");
+                exportFile.WriteLine("Servo servo4;");
+                exportFile.WriteLine("Servo servo5;");
+
+                exportFile.WriteLine("void setup() {");
+                exportFile.WriteLine("\tservo1.attach(A0);");
+                exportFile.WriteLine("\tservo2.attach(A1);");
+                exportFile.WriteLine("\tservo3.attach(A2);");
+                exportFile.WriteLine("\tservo4.attach(A3);");
+                exportFile.WriteLine("\tservo5.attach(A4);");
+                exportFile.WriteLine("\tcurrent = -1;");
+                exportFile.WriteLine("}");
+                exportFile.WriteLine("void loop() {");
+                exportFile.WriteLine("\tcurrent++;");
+                exportFile.WriteLine("\tif (current >=size) {");
+                exportFile.WriteLine("\t\tcurrent = 0;");
+                exportFile.WriteLine("\t}");
+                exportFile.WriteLine("\tservo1.write(frames[current][0]);");
+                exportFile.WriteLine("\tservo2.write(frames[current][1]);");
+                exportFile.WriteLine("\tservo3.write(frames[current][2]);");
+                exportFile.WriteLine("\tservo4.write(frames[current][3]);");
+                exportFile.WriteLine("\tservo5.write(frames[current][4]);");
+                exportFile.WriteLine("\tdelay(frames[current][5]);");
+                exportFile.WriteLine("}");
+                exportFile.Close();
+                
+
+
+            }
+            catch
+            {
+
+            }
         }
     }
     }

@@ -12,11 +12,11 @@ String readString, servos[5];
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600 );
-  servo0.attach(3);
-  servo1.attach(5);
-  servo2.attach(6);
-  servo3.attach(9);
-  servo4.attach(10);
+  servo0.attach(A0);
+  servo1.attach(A1);
+  servo2.attach(A2);
+  servo3.attach(A3);
+  servo4.attach(A4);
 }
 
 void loop() {

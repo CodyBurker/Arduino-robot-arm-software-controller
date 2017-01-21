@@ -55,6 +55,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.baudRateTextBox = new System.Windows.Forms.TextBox();
             this.connectButton = new System.Windows.Forms.Button();
+            this.playbackGroupBox = new System.Windows.Forms.GroupBox();
+            this.PlaybackControlTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.loopCheckBox = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.stopButton = new System.Windows.Forms.Button();
+            this.playFromSelectedButton = new System.Windows.Forms.Button();
+            this.playFromTopButton = new System.Windows.Forms.Button();
             this.frameControlGroupBox = new System.Windows.Forms.GroupBox();
             this.FrameControlTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -62,11 +69,6 @@
             this.newFrameButton = new System.Windows.Forms.Button();
             this.framDurationLabel = new System.Windows.Forms.Label();
             this.durrationNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.playbackGroupBox = new System.Windows.Forms.GroupBox();
-            this.PlaybackControlTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.stopButton = new System.Windows.Forms.Button();
-            this.playFromSelectedButton = new System.Windows.Forms.Button();
-            this.playFromTopButton = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,8 +80,8 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.playbackTimer = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
-            this.loopCheckBox = new System.Windows.Forms.CheckBox();
+            this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mainLayoutPanel.SuspendLayout();
             this.armControlGroupBox.SuspendLayout();
             this.armControlLayoutPanel.SuspendLayout();
@@ -94,11 +96,11 @@
             this.connectionControlTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serialPortNumericUpDown)).BeginInit();
             this.panel1.SuspendLayout();
+            this.playbackGroupBox.SuspendLayout();
+            this.PlaybackControlTableLayoutPanel.SuspendLayout();
             this.frameControlGroupBox.SuspendLayout();
             this.FrameControlTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.durrationNumericUpDown)).BeginInit();
-            this.playbackGroupBox.SuspendLayout();
-            this.PlaybackControlTableLayoutPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -187,11 +189,12 @@
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar5, 2);
             this.TrackBar5.LargeChange = 20;
             this.TrackBar5.Location = new System.Drawing.Point(3, 415);
-            this.TrackBar5.Maximum = 100;
+            this.TrackBar5.Maximum = 180;
             this.TrackBar5.Name = "TrackBar5";
             this.TrackBar5.Size = new System.Drawing.Size(251, 67);
             this.TrackBar5.TabIndex = 9;
             this.TrackBar5.TickFrequency = 10;
+            this.TrackBar5.Value = 90;
             this.TrackBar5.Scroll += new System.EventHandler(this.auxTrackBar_Scroll);
             // 
             // TrackBar4
@@ -202,11 +205,13 @@
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar4, 2);
             this.TrackBar4.LargeChange = 20;
             this.TrackBar4.Location = new System.Drawing.Point(3, 318);
-            this.TrackBar4.Maximum = 100;
+            this.TrackBar4.Maximum = 160;
+            this.TrackBar4.Minimum = 20;
             this.TrackBar4.Name = "TrackBar4";
             this.TrackBar4.Size = new System.Drawing.Size(251, 67);
             this.TrackBar4.TabIndex = 8;
             this.TrackBar4.TickFrequency = 10;
+            this.TrackBar4.Value = 90;
             this.TrackBar4.Scroll += new System.EventHandler(this.gripperTrackBar_Scroll);
             // 
             // TrackBar3
@@ -217,11 +222,13 @@
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar3, 2);
             this.TrackBar3.LargeChange = 20;
             this.TrackBar3.Location = new System.Drawing.Point(3, 221);
-            this.TrackBar3.Maximum = 100;
+            this.TrackBar3.Maximum = 160;
+            this.TrackBar3.Minimum = 20;
             this.TrackBar3.Name = "TrackBar3";
             this.TrackBar3.Size = new System.Drawing.Size(251, 67);
             this.TrackBar3.TabIndex = 7;
             this.TrackBar3.TickFrequency = 10;
+            this.TrackBar3.Value = 90;
             this.TrackBar3.Scroll += new System.EventHandler(this.elevationTrackBar_Scroll);
             // 
             // TrackBar2
@@ -232,11 +239,13 @@
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar2, 2);
             this.TrackBar2.LargeChange = 20;
             this.TrackBar2.Location = new System.Drawing.Point(3, 124);
-            this.TrackBar2.Maximum = 100;
+            this.TrackBar2.Maximum = 160;
+            this.TrackBar2.Minimum = 20;
             this.TrackBar2.Name = "TrackBar2";
             this.TrackBar2.Size = new System.Drawing.Size(251, 67);
             this.TrackBar2.TabIndex = 6;
             this.TrackBar2.TickFrequency = 10;
+            this.TrackBar2.Value = 90;
             this.TrackBar2.Scroll += new System.EventHandler(this.extensionTrackBar_Scroll);
             // 
             // refreshRateNumericUpDown
@@ -354,6 +363,7 @@
             this.TrackBar1.Size = new System.Drawing.Size(251, 67);
             this.TrackBar1.TabIndex = 5;
             this.TrackBar1.TickFrequency = 10;
+            this.TrackBar1.Value = 90;
             this.TrackBar1.Scroll += new System.EventHandler(this.rotationTrackBar_Scroll);
             // 
             // label2
@@ -507,6 +517,105 @@
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
+            // playbackGroupBox
+            // 
+            this.playbackGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.playbackGroupBox.Controls.Add(this.PlaybackControlTableLayoutPanel);
+            this.playbackGroupBox.Location = new System.Drawing.Point(541, 362);
+            this.playbackGroupBox.Name = "playbackGroupBox";
+            this.playbackGroupBox.Size = new System.Drawing.Size(263, 173);
+            this.playbackGroupBox.TabIndex = 5;
+            this.playbackGroupBox.TabStop = false;
+            this.playbackGroupBox.Text = "Playback Control";
+            // 
+            // PlaybackControlTableLayoutPanel
+            // 
+            this.PlaybackControlTableLayoutPanel.ColumnCount = 2;
+            this.PlaybackControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PlaybackControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PlaybackControlTableLayoutPanel.Controls.Add(this.loopCheckBox, 1, 3);
+            this.PlaybackControlTableLayoutPanel.Controls.Add(this.label1, 0, 3);
+            this.PlaybackControlTableLayoutPanel.Controls.Add(this.stopButton, 0, 2);
+            this.PlaybackControlTableLayoutPanel.Controls.Add(this.playFromSelectedButton, 0, 1);
+            this.PlaybackControlTableLayoutPanel.Controls.Add(this.playFromTopButton, 0, 0);
+            this.PlaybackControlTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlaybackControlTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
+            this.PlaybackControlTableLayoutPanel.Name = "PlaybackControlTableLayoutPanel";
+            this.PlaybackControlTableLayoutPanel.RowCount = 4;
+            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.PlaybackControlTableLayoutPanel.Size = new System.Drawing.Size(257, 154);
+            this.PlaybackControlTableLayoutPanel.TabIndex = 1;
+            this.PlaybackControlTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PlaybackControlTableLayoutPanel_Paint);
+            // 
+            // loopCheckBox
+            // 
+            this.loopCheckBox.AutoSize = true;
+            this.loopCheckBox.Checked = true;
+            this.loopCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.loopCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loopCheckBox.Location = new System.Drawing.Point(131, 117);
+            this.loopCheckBox.Name = "loopCheckBox";
+            this.loopCheckBox.Size = new System.Drawing.Size(123, 34);
+            this.loopCheckBox.TabIndex = 7;
+            this.loopCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.loopCheckBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.loopCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 40);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Loop:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // stopButton
+            // 
+            this.PlaybackControlTableLayoutPanel.SetColumnSpan(this.stopButton, 2);
+            this.stopButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stopButton.Location = new System.Drawing.Point(7, 83);
+            this.stopButton.Margin = new System.Windows.Forms.Padding(7);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(243, 24);
+            this.stopButton.TabIndex = 2;
+            this.stopButton.Text = "Stop Playback";
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+            // 
+            // playFromSelectedButton
+            // 
+            this.PlaybackControlTableLayoutPanel.SetColumnSpan(this.playFromSelectedButton, 2);
+            this.playFromSelectedButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playFromSelectedButton.Location = new System.Drawing.Point(7, 45);
+            this.playFromSelectedButton.Margin = new System.Windows.Forms.Padding(7);
+            this.playFromSelectedButton.Name = "playFromSelectedButton";
+            this.playFromSelectedButton.Size = new System.Drawing.Size(243, 24);
+            this.playFromSelectedButton.TabIndex = 1;
+            this.playFromSelectedButton.Text = "Play from Selected Frame";
+            this.playFromSelectedButton.UseVisualStyleBackColor = true;
+            this.playFromSelectedButton.Click += new System.EventHandler(this.playFromSelectedButton_Click);
+            // 
+            // playFromTopButton
+            // 
+            this.PlaybackControlTableLayoutPanel.SetColumnSpan(this.playFromTopButton, 2);
+            this.playFromTopButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playFromTopButton.Location = new System.Drawing.Point(7, 7);
+            this.playFromTopButton.Margin = new System.Windows.Forms.Padding(7);
+            this.playFromTopButton.Name = "playFromTopButton";
+            this.playFromTopButton.Size = new System.Drawing.Size(243, 24);
+            this.playFromTopButton.TabIndex = 0;
+            this.playFromTopButton.Text = "Play from Top";
+            this.playFromTopButton.UseVisualStyleBackColor = true;
+            this.playFromTopButton.Click += new System.EventHandler(this.playFromTopButton_Click);
+            // 
             // frameControlGroupBox
             // 
             this.frameControlGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -615,80 +724,6 @@
             0,
             0});
             // 
-            // playbackGroupBox
-            // 
-            this.playbackGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.playbackGroupBox.Controls.Add(this.PlaybackControlTableLayoutPanel);
-            this.playbackGroupBox.Location = new System.Drawing.Point(541, 362);
-            this.playbackGroupBox.Name = "playbackGroupBox";
-            this.playbackGroupBox.Size = new System.Drawing.Size(263, 173);
-            this.playbackGroupBox.TabIndex = 5;
-            this.playbackGroupBox.TabStop = false;
-            this.playbackGroupBox.Text = "Playback Control";
-            // 
-            // PlaybackControlTableLayoutPanel
-            // 
-            this.PlaybackControlTableLayoutPanel.ColumnCount = 2;
-            this.PlaybackControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PlaybackControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PlaybackControlTableLayoutPanel.Controls.Add(this.loopCheckBox, 1, 3);
-            this.PlaybackControlTableLayoutPanel.Controls.Add(this.label1, 0, 3);
-            this.PlaybackControlTableLayoutPanel.Controls.Add(this.stopButton, 0, 2);
-            this.PlaybackControlTableLayoutPanel.Controls.Add(this.playFromSelectedButton, 0, 1);
-            this.PlaybackControlTableLayoutPanel.Controls.Add(this.playFromTopButton, 0, 0);
-            this.PlaybackControlTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlaybackControlTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
-            this.PlaybackControlTableLayoutPanel.Name = "PlaybackControlTableLayoutPanel";
-            this.PlaybackControlTableLayoutPanel.RowCount = 4;
-            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.PlaybackControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.PlaybackControlTableLayoutPanel.Size = new System.Drawing.Size(257, 154);
-            this.PlaybackControlTableLayoutPanel.TabIndex = 1;
-            this.PlaybackControlTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PlaybackControlTableLayoutPanel_Paint);
-            // 
-            // stopButton
-            // 
-            this.PlaybackControlTableLayoutPanel.SetColumnSpan(this.stopButton, 2);
-            this.stopButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stopButton.Location = new System.Drawing.Point(7, 83);
-            this.stopButton.Margin = new System.Windows.Forms.Padding(7);
-            this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(243, 24);
-            this.stopButton.TabIndex = 2;
-            this.stopButton.Text = "Stop Playback";
-            this.stopButton.UseVisualStyleBackColor = true;
-            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
-            // 
-            // playFromSelectedButton
-            // 
-            this.PlaybackControlTableLayoutPanel.SetColumnSpan(this.playFromSelectedButton, 2);
-            this.playFromSelectedButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playFromSelectedButton.Location = new System.Drawing.Point(7, 45);
-            this.playFromSelectedButton.Margin = new System.Windows.Forms.Padding(7);
-            this.playFromSelectedButton.Name = "playFromSelectedButton";
-            this.playFromSelectedButton.Size = new System.Drawing.Size(243, 24);
-            this.playFromSelectedButton.TabIndex = 1;
-            this.playFromSelectedButton.Text = "Play from Selected Frame";
-            this.playFromSelectedButton.UseVisualStyleBackColor = true;
-            this.playFromSelectedButton.Click += new System.EventHandler(this.playFromSelectedButton_Click);
-            // 
-            // playFromTopButton
-            // 
-            this.PlaybackControlTableLayoutPanel.SetColumnSpan(this.playFromTopButton, 2);
-            this.playFromTopButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playFromTopButton.Location = new System.Drawing.Point(7, 7);
-            this.playFromTopButton.Margin = new System.Windows.Forms.Padding(7);
-            this.playFromTopButton.Name = "playFromTopButton";
-            this.playFromTopButton.Size = new System.Drawing.Size(243, 24);
-            this.playFromTopButton.TabIndex = 0;
-            this.playFromTopButton.Text = "Play from Top";
-            this.playFromTopButton.UseVisualStyleBackColor = true;
-            this.playFromTopButton.Click += new System.EventHandler(this.playFromTopButton_Click);
-            // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -703,7 +738,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem,
-            this.saveToolStripMenuItem1});
+            this.saveToolStripMenuItem1,
+            this.toolStripTextBox1});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -711,14 +747,14 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.saveToolStripMenuItem.Text = "Open";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem1
             // 
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(191, 22);
             this.saveToolStripMenuItem1.Text = "Save";
             this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
@@ -750,6 +786,7 @@
             // saveFileDialog
             // 
             this.saveFileDialog.DefaultExt = "rbt";
+            this.saveFileDialog.Filter = "Robot Files|*.rbt";
             this.saveFileDialog.Title = "Save frames...";
             this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
@@ -761,30 +798,16 @@
             // 
             this.openFileDialog1.Filter = "Robot Files|*.rbt";
             // 
-            // label1
+            // exportFileDialog
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 40);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Loop:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.exportFileDialog.Filter = "Text File|*.txt";
             // 
-            // loopCheckBox
+            // toolStripTextBox1
             // 
-            this.loopCheckBox.AutoSize = true;
-            this.loopCheckBox.Checked = true;
-            this.loopCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.loopCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loopCheckBox.Location = new System.Drawing.Point(131, 117);
-            this.loopCheckBox.Name = "loopCheckBox";
-            this.loopCheckBox.Size = new System.Drawing.Size(123, 34);
-            this.loopCheckBox.TabIndex = 7;
-            this.loopCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.loopCheckBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.loopCheckBox.UseVisualStyleBackColor = true;
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(191, 22);
+            this.toolStripTextBox1.Text = "Export Arduino Sketch";
+            this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
             // Form1
             // 
@@ -818,13 +841,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.serialPortNumericUpDown)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.playbackGroupBox.ResumeLayout(false);
+            this.PlaybackControlTableLayoutPanel.ResumeLayout(false);
+            this.PlaybackControlTableLayoutPanel.PerformLayout();
             this.frameControlGroupBox.ResumeLayout(false);
             this.FrameControlTableLayoutPanel.ResumeLayout(false);
             this.FrameControlTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.durrationNumericUpDown)).EndInit();
-            this.playbackGroupBox.ResumeLayout(false);
-            this.PlaybackControlTableLayoutPanel.ResumeLayout(false);
-            this.PlaybackControlTableLayoutPanel.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
@@ -886,6 +909,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox loopCheckBox;
+        private System.Windows.Forms.SaveFileDialog exportFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem toolStripTextBox1;
     }
 }
 
