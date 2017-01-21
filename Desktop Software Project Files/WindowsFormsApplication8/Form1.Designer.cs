@@ -744,7 +744,7 @@
             // 
             // saveFileDialog
             // 
-            this.saveFileDialog.DefaultExt = "txt";
+            this.saveFileDialog.DefaultExt = "rbt";
             this.saveFileDialog.Title = "Save frames...";
             this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
@@ -777,6 +777,10 @@
             this.loopCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.loopCheckBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.loopCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "Robot Files|*.rbt";
             // 
             // Form1
             // 
