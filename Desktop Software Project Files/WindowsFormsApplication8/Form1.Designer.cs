@@ -553,7 +553,7 @@
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(243, 26);
             this.deleteButton.TabIndex = 2;
-            this.deleteButton.Text = "Delete Selected Frame";
+            this.deleteButton.Text = "Delete Current Frame";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -579,7 +579,7 @@
             this.newFrameButton.Name = "newFrameButton";
             this.newFrameButton.Size = new System.Drawing.Size(243, 26);
             this.newFrameButton.TabIndex = 0;
-            this.newFrameButton.Text = "Save as New Frame";
+            this.newFrameButton.Text = "Insert New Frame After Current Frame";
             this.newFrameButton.UseVisualStyleBackColor = true;
             this.newFrameButton.Click += new System.EventHandler(this.newFrameButton_Click);
             // 
@@ -788,8 +788,9 @@
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
+            this.MinimumSize = new System.Drawing.Size(823, 621);
             this.Name = "Form1";
-            this.Text = "Robot Arm Control";
+            this.Text = "Robot Arm Control by Cody Burker";
             this.mainLayoutPanel.ResumeLayout(false);
             this.armControlGroupBox.ResumeLayout(false);
             this.armControlGroupBox.PerformLayout();

@@ -415,6 +415,8 @@ namespace WindowsFormsApplication8
                 framesListBox.Items.Add(listToString());
 
             }
+            framesListBox.Select();
+            framesListBox.SelectedIndex = 0;
 
         }
     }
