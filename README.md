@@ -13,3 +13,6 @@ This software is intended to be paired with the EEZYbotARM found [here] (http://
 * Open and load saved sequences
 * Playback and loop timed sequences of frames over serial
 * Export sequences to standalone Arduino code
+
+##Screenshot
+![Screenshot of Software](/Screen Shot 2017-01-25 at 12.31.22 PM.png)
