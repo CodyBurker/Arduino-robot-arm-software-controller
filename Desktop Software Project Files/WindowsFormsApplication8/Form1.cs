@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication8
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -509,7 +509,6 @@ namespace WindowsFormsApplication8
                 exportFile.WriteLine("Servo servo3;");
                 exportFile.WriteLine("Servo servo4;");
                 exportFile.WriteLine("Servo servo5;");
-
                 exportFile.WriteLine("void setup() {");
                 exportFile.WriteLine("\tservo1.attach(A0);");
                 exportFile.WriteLine("\tservo2.attach(A1);");
@@ -531,9 +530,6 @@ namespace WindowsFormsApplication8
                 exportFile.WriteLine("\tdelay(frames[current][5]);");
                 exportFile.WriteLine("}");
                 exportFile.Close();
-                
-
-
             }
             catch
             {

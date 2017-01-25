@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication8
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.armControlGroupBox = new System.Windows.Forms.GroupBox();
             this.armControlLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -708,7 +708,7 @@
             this.durrationNumericUpDown.Location = new System.Drawing.Point(92, 160);
             this.durrationNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.durrationNumericUpDown.Maximum = new decimal(new int[] {
-            10000,
+            9999,
             0,
             0,
             0});
@@ -807,7 +807,7 @@
             // 
             this.exportFileDialog.Filter = "Text File|*.txt";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -818,7 +818,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(823, 621);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Robot Arm Control by Cody Burker";
             this.mainLayoutPanel.ResumeLayout(false);
             this.armControlGroupBox.ResumeLayout(false);
