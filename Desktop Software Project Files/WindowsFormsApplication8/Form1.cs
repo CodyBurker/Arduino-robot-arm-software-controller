@@ -319,7 +319,7 @@ namespace WindowsFormsApplication8
             }
             catch
             {
-                MessageBox.Show("Unable to save file");
+                MessageBox.Show("Unable to save file.", "Error");
             }
         }
 
@@ -449,9 +449,16 @@ namespace WindowsFormsApplication8
                 framesListBox.Select();
                 framesListBox.SelectedIndex = 0;
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Error Loading File", "Can't load file");
+                if (ex.Message == "Empty path name is not legal.")
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Error Loading File:" + ex.Message, "Can't load file:");
+                }
             }
 
         }
