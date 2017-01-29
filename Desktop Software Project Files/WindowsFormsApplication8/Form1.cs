@@ -47,7 +47,7 @@ namespace WindowsFormsApplication8
         int servo1 = 90;
         int servo2 = 90;
         int servo3 = 90;
-        int servo4 = 90;
+        int servo4 = 145;
         int servo5 = 90;
         private void rotationTrackBar_Scroll(object sender, EventArgs e)//On Rotation Track Bar Update
         {

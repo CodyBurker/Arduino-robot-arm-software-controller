@@ -189,7 +189,7 @@
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar5, 2);
             this.TrackBar5.LargeChange = 20;
             this.TrackBar5.Location = new System.Drawing.Point(3, 415);
-            this.TrackBar5.Maximum = 180;
+            this.TrackBar5.Maximum = 100;
             this.TrackBar5.Name = "TrackBar5";
             this.TrackBar5.Size = new System.Drawing.Size(251, 67);
             this.TrackBar5.TabIndex = 9;
@@ -206,11 +206,12 @@
             this.TrackBar4.LargeChange = 20;
             this.TrackBar4.Location = new System.Drawing.Point(3, 318);
             this.TrackBar4.Maximum = 180;
+            this.TrackBar4.Minimum = 110;
             this.TrackBar4.Name = "TrackBar4";
             this.TrackBar4.Size = new System.Drawing.Size(251, 67);
             this.TrackBar4.TabIndex = 8;
             this.TrackBar4.TickFrequency = 10;
-            this.TrackBar4.Value = 90;
+            this.TrackBar4.Value = 145;
             this.TrackBar4.Scroll += new System.EventHandler(this.gripperTrackBar_Scroll);
             // 
             // TrackBar3
@@ -221,7 +222,8 @@
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar3, 2);
             this.TrackBar3.LargeChange = 20;
             this.TrackBar3.Location = new System.Drawing.Point(3, 221);
-            this.TrackBar3.Maximum = 180;
+            this.TrackBar3.Maximum = 170;
+            this.TrackBar3.Minimum = 90;
             this.TrackBar3.Name = "TrackBar3";
             this.TrackBar3.Size = new System.Drawing.Size(251, 67);
             this.TrackBar3.TabIndex = 7;
@@ -237,7 +239,8 @@
             this.armControlLayoutPanel.SetColumnSpan(this.TrackBar2, 2);
             this.TrackBar2.LargeChange = 20;
             this.TrackBar2.Location = new System.Drawing.Point(3, 124);
-            this.TrackBar2.Maximum = 180;
+            this.TrackBar2.Maximum = 130;
+            this.TrackBar2.Minimum = 90;
             this.TrackBar2.Name = "TrackBar2";
             this.TrackBar2.Size = new System.Drawing.Size(251, 67);
             this.TrackBar2.TabIndex = 6;

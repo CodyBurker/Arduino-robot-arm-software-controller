@@ -15,7 +15,7 @@ void setup() {
   servo0.attach(A0);
   servo1.attach(A1);
   servo2.attach(A2);
-  servo3.attach(A3);
+  servo3.attach(A5);
   servo4.attach(A4);
 }
 
@@ -39,5 +39,6 @@ void loop() {
     servo3.write(servos[3].toInt());
     servo4.write(servos[4].toInt());
     readString = "";
+    
   }
 }
