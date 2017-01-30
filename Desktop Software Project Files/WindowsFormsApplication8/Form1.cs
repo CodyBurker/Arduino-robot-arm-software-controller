@@ -120,6 +120,13 @@ namespace WindowsFormsApplication8
                 case Keys.L:
                     loopCheckBox.Checked = !loopCheckBox.Checked;
                     return true;
+                case Keys.S:
+                    saveToolStripMenuItem1.PerformClick();
+                    return true;
+                case Keys.E:
+                    toolStripTextBox1.PerformClick();
+                    return true;
+
                 default:
                     return base.ProcessCmdKey(ref msg, keyData);
             }

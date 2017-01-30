@@ -748,22 +748,22 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.saveToolStripMenuItem.Text = "Open";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem1
             // 
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(191, 22);
-            this.saveToolStripMenuItem1.Text = "Save";
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
+            this.saveToolStripMenuItem1.Text = "Save (S)";
             this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(191, 22);
-            this.toolStripTextBox1.Text = "Export Arduino Sketch";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(208, 22);
+            this.toolStripTextBox1.Text = "Export Arduino Sketch (E)";
             this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
             // statusStrip
