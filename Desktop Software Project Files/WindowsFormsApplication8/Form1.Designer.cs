@@ -574,7 +574,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 40);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Loop:";
+            this.label1.Text = "Loop (L):";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // stopButton
@@ -586,7 +586,7 @@
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(243, 24);
             this.stopButton.TabIndex = 2;
-            this.stopButton.Text = "Stop Playback";
+            this.stopButton.Text = "Stop Playback (Space)";
             this.stopButton.UseVisualStyleBackColor = true;
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
@@ -599,7 +599,7 @@
             this.playFromSelectedButton.Name = "playFromSelectedButton";
             this.playFromSelectedButton.Size = new System.Drawing.Size(243, 24);
             this.playFromSelectedButton.TabIndex = 1;
-            this.playFromSelectedButton.Text = "Play from Selected Frame";
+            this.playFromSelectedButton.Text = "Play from Selected Frame (P)";
             this.playFromSelectedButton.UseVisualStyleBackColor = true;
             this.playFromSelectedButton.Click += new System.EventHandler(this.playFromSelectedButton_Click);
             // 
@@ -612,7 +612,7 @@
             this.playFromTopButton.Name = "playFromTopButton";
             this.playFromTopButton.Size = new System.Drawing.Size(243, 24);
             this.playFromTopButton.TabIndex = 0;
-            this.playFromTopButton.Text = "Play from Top";
+            this.playFromTopButton.Text = "Play from Top (Space)";
             this.playFromTopButton.UseVisualStyleBackColor = true;
             this.playFromTopButton.Click += new System.EventHandler(this.playFromTopButton_Click);
             // 

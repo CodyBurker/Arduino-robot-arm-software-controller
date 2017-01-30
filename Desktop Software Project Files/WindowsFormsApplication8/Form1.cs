@@ -114,6 +114,12 @@ namespace WindowsFormsApplication8
                         stopButton.PerformClick();
                     }
                     return true;
+                case Keys.P:
+                    playFromTopButton.PerformClick();
+                    return true;
+                case Keys.L:
+                    loopCheckBox.Checked = !loopCheckBox.Checked;
+                    return true;
                 default:
                     return base.ProcessCmdKey(ref msg, keyData);
             }
