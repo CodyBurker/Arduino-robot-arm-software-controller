@@ -715,6 +715,11 @@
             0,
             0,
             0});
+            this.durrationNumericUpDown.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.durrationNumericUpDown.Name = "durrationNumericUpDown";
             this.durrationNumericUpDown.Size = new System.Drawing.Size(162, 20);
             this.durrationNumericUpDown.TabIndex = 4;

@@ -60,8 +60,12 @@ namespace WindowsFormsApplication8
                     deleteButton.PerformClick();
                     return true;
                 case Keys.Back:
-                    deleteButton.PerformClick();
-                    return true;
+                    if (!durrationNumericUpDown.ContainsFocus)
+                    {
+                        deleteButton.PerformClick();
+                    }
+                    
+                    return false;
                 case Keys.Down:
                     if (durrationNumericUpDown.ContainsFocus) {
                         try
