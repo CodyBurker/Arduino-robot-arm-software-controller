@@ -659,7 +659,7 @@
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(243, 36);
             this.deleteButton.TabIndex = 2;
-            this.deleteButton.Text = "Delete Current Frame";
+            this.deleteButton.Text = "Delete Current Frame (D)";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -672,7 +672,7 @@
             this.overwriteButton.Name = "overwriteButton";
             this.overwriteButton.Size = new System.Drawing.Size(243, 36);
             this.overwriteButton.TabIndex = 1;
-            this.overwriteButton.Text = "Overwrite Current Frame";
+            this.overwriteButton.Text = "Overwrite Current Frame (O)";
             this.overwriteButton.UseVisualStyleBackColor = true;
             this.overwriteButton.Click += new System.EventHandler(this.overwriteButton_Click);
             // 
@@ -685,7 +685,7 @@
             this.newFrameButton.Name = "newFrameButton";
             this.newFrameButton.Size = new System.Drawing.Size(243, 36);
             this.newFrameButton.TabIndex = 0;
-            this.newFrameButton.Text = "Insert New Frame After Current Frame";
+            this.newFrameButton.Text = "Insert New Frame After Current Frame (N)";
             this.newFrameButton.UseVisualStyleBackColor = true;
             this.newFrameButton.Click += new System.EventHandler(this.newFrameButton_Click);
             // 
@@ -723,6 +723,7 @@
             0,
             0,
             0});
+            this.durrationNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.durrationNumericUpDown_KeyDown);
             // 
             // menuStrip
             // 
@@ -823,6 +824,7 @@
             this.MinimumSize = new System.Drawing.Size(823, 621);
             this.Name = "MainForm";
             this.Text = "Robot Arm Control by Cody Burker";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainLayoutPanel.ResumeLayout(false);
             this.armControlGroupBox.ResumeLayout(false);
             this.armControlGroupBox.PerformLayout();

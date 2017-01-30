@@ -42,6 +42,82 @@ namespace WindowsFormsApplication8
         {
 
         }
+        //Keyboard Shortcuts
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.N:
+                    newFrameButton.PerformClick();
+                    return true;
+                case Keys.O:
+                    overwriteButton.PerformClick();
+                    return true;
+                case Keys.D:
+                    deleteButton.PerformClick();
+                    return true;
+                case Keys.Delete:
+                    deleteButton.PerformClick();
+                    return true;
+                case Keys.Back:
+                    deleteButton.PerformClick();
+                    return true;
+                case Keys.Down:
+                    if (durrationNumericUpDown.ContainsFocus) {
+                        try
+                        {
+                            durrationNumericUpDown.Value = durrationNumericUpDown.Value - durrationNumericUpDown.Increment;
+                        }
+                        catch
+                        {
+
+                        }
+                        }
+                    else
+                    {
+                        if (framesListBox.SelectedIndex < framesListBox.Items.Count - 1 && framesListBox.Items.Count > 0)
+                        {
+                            framesListBox.SelectedIndex++;
+                            framesListBox.Select();
+                        } 
+                    }
+                    return true;
+                case Keys.Up:
+                    if (durrationNumericUpDown.ContainsFocus)
+                    {
+                        try
+                        {
+                            durrationNumericUpDown.Value = durrationNumericUpDown.Value + durrationNumericUpDown.Increment;
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        if (framesListBox.SelectedIndex != 0 && framesListBox.Items.Count > 0)
+                        {
+                            framesListBox.SelectedIndex--;
+                            framesListBox.Select();
+
+                        }
+                    }
+                    return true;
+                case Keys.Space:
+                    if (!playing)
+                    {
+                        playFromSelectedButton.PerformClick();
+                    }
+                    else
+                    {
+                        stopButton.PerformClick();
+                    }
+                    return true;
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
+            }
+        }
 
         //Declare variables for servos
         int servo1 = 90;
@@ -534,6 +610,19 @@ namespace WindowsFormsApplication8
             catch
             {
 
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void durrationNumericUpDown_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Equals(Keys.Enter))
+            {
+                MessageBox.Show("Hello");
             }
         }
     }
