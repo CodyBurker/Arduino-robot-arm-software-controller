@@ -599,7 +599,7 @@
             this.playFromSelectedButton.Name = "playFromSelectedButton";
             this.playFromSelectedButton.Size = new System.Drawing.Size(243, 24);
             this.playFromSelectedButton.TabIndex = 1;
-            this.playFromSelectedButton.Text = "Play from Selected Frame (P)";
+            this.playFromSelectedButton.Text = "Play from Selected Frame (Space)";
             this.playFromSelectedButton.UseVisualStyleBackColor = true;
             this.playFromSelectedButton.Click += new System.EventHandler(this.playFromSelectedButton_Click);
             // 
@@ -612,7 +612,7 @@
             this.playFromTopButton.Name = "playFromTopButton";
             this.playFromTopButton.Size = new System.Drawing.Size(243, 24);
             this.playFromTopButton.TabIndex = 0;
-            this.playFromTopButton.Text = "Play from Top (Space)";
+            this.playFromTopButton.Text = "Play from Top (P)";
             this.playFromTopButton.UseVisualStyleBackColor = true;
             this.playFromTopButton.Click += new System.EventHandler(this.playFromTopButton_Click);
             // 
