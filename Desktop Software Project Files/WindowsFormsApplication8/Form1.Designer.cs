@@ -513,7 +513,7 @@
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(227, 21);
             this.connectButton.TabIndex = 3;
-            this.connectButton.Text = "Connect";
+            this.connectButton.Text = "Connect1";
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
