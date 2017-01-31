@@ -1,0 +1,13 @@
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\bin\Debug\Arduino Robot Arm Controller.exe.config
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\bin\Debug\Arduino Robot Arm Controller.exe.manifest
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\bin\Debug\Arduino Robot Arm Controller.application
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\bin\Debug\Arduino Robot Arm Controller.exe
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\bin\Debug\Arduino Robot Arm Controller.pdb
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\WindowsFormsApplication8.MainForm.resources
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\WindowsFormsApplication8.Properties.Resources.resources
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\Arduino Robot Arm Control.csproj.GenerateResource.Cache
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\Arduino Robot Arm Controller.exe.manifest
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\Arduino Robot Arm Controller.application
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\Arduino Robot Arm Controller.exe
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\Arduino Robot Arm Controller.pdb
+\\Mac\iCloud\2016-2017\Robot Arm\Desktop Software Project Files\WindowsFormsApplication8\obj\Debug\Arduino Robot Arm Control.csprojResolveAssemblyReference.cache

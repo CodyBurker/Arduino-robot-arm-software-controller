@@ -223,7 +223,7 @@
             this.TrackBar3.LargeChange = 20;
             this.TrackBar3.Location = new System.Drawing.Point(3, 221);
             this.TrackBar3.Maximum = 170;
-            this.TrackBar3.Minimum = 90;
+            this.TrackBar3.Minimum = 70;
             this.TrackBar3.Name = "TrackBar3";
             this.TrackBar3.Size = new System.Drawing.Size(251, 67);
             this.TrackBar3.TabIndex = 7;
